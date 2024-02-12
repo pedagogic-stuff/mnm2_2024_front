@@ -1,7 +1,7 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	export let data;
+	$: ({ ateliers } = data);
+	$: console.log(ateliers)
 </script>
 
 <svelte:head>
@@ -10,50 +10,22 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
 
-		to your new<br />SvelteKit app
-	</h1>
+		<!-- Import the component -->
+	<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+	<!-- Use it like any other HTML element -->
+	<model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src="https://res.cloudinary.com/diguckq2s/image/upload/v1707726695/Chair_6529739e5c.glb" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
 
-	<Counter />
+	{#each ateliers.data as atelier }
+		<h2>{atelier.id} - {atelier.attributes?.NomArtisan}</h2>
+	{/each}
+
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+model-viewer {
+	width: 600px;
+	height: 500px;
+}
 </style>

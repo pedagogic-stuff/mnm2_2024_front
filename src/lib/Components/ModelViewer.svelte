@@ -1,5 +1,6 @@
 <script>
     export let objet = '';
+    export let exposure = 1;
 
     let modelviewer, orbit, target, script;
 
@@ -22,7 +23,15 @@
 
 <section>
     <!-- Use it like any other HTML element -->
-	<model-viewer bind:this={modelviewer} alt="" src="{objet.data?.attributes?.fichier3d?.data?.attributes?.url}" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+	<model-viewer 
+        bind:this={modelviewer}
+        alt="" 
+        src="{objet.data?.attributes?.fichier3d?.data?.attributes?.url}" 
+        shadow-intensity="1" 
+        camera-controls 
+        touch-action="pan-y" 
+        exposure={exposure}
+    ></model-viewer>
 
 	<button on:click={ () => { getCameraOrbit() } }>Get Orbit</button>
 	<button on:click={ () => { getCameraTarget() } }>Get Target</button>

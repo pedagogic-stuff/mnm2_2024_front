@@ -32,7 +32,7 @@
     {#if step === -1}
         <AtelierInformationsRaw {atelier} />
     {:else if step === 0}
-        <ChoixObjet objets={atelier.data.attributes.objet_3_ds} />
+        <ChoixObjet reset={true} objets={atelier.data.attributes.objet_3_ds} />
     {/if}
 
 

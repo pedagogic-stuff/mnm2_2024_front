@@ -1,6 +1,7 @@
 <script>
     export let qcms = '';
     export let qcmDone = false;
+    export let exposure = 0;
     let correct = undefined;
     let qcmIndex = 0;
     let qcm;
@@ -15,10 +16,9 @@
         }
         else {
             qcmDone = true;
+            exposure = 0;
         }
     }
-
-    
 
 </script>
 
@@ -27,7 +27,7 @@
 
     <ul class="">
         {#each qcm.attributes.reponse as rep}
-            <li><button on:click={ () => correct = rep.VraiFaux }>{rep.Choix}</button></li>
+            <li><button on:click={ () => { correct = rep.VraiFaux; exposure = 1} }>{rep.Choix}</button></li>
         {/each}
     </ul>
 
@@ -40,6 +40,7 @@
             {:else}
                 {qcm.attributes.CartelFaux}
             {/if}
+
         {/if}
     </div>
 

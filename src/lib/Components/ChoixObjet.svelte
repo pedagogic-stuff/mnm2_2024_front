@@ -1,12 +1,14 @@
 <script>
     import QCMs from '$lib/Components/QCMs.svelte'
     import Manipulation from '$lib/Components/Manipulation.svelte'
+    import ModelViewer from '$lib/Components/ModelViewer.svelte';
 
     export let objets = '';
     let objet;
     let step = undefined;
     let qcmDone = false;
     let manipulationDone = false;
+    let exposure = 0;
 
     $: {
         console.log('objets: ', objets)
@@ -56,7 +58,8 @@
         <h3>{objet.data.attributes.CodeObjet}</h3>
 
         {#if step == 'qcm' }
-            <QCMs bind:qcmDone={qcmDone} qcms={objet.data.attributes.qcms} />
+            <QCMs bind:qcmDone={qcmDone} bind:exposure={exposure} qcms={objet.data.attributes.qcms} />
+            <ModelViewer {objet} exposure={exposure} />
         {/if}
 
         {#if step == 'manipulation' }

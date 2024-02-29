@@ -1,12 +1,72 @@
+
+/* @font-face { */
+  /* font-family: "Fedra"; */
+  /* src: url("../fonts/FedraSansPro-Bold.ttf"); */
+/* } */
+/*  */
+/* @font-face { */
+  /* font-family: "Fedra"; */
+  /* font-weight: 300; */
+  /* src: url */
+/* } */
+/*  */
+/* @font-face { */
+  /* font-family: 'Zarid'; */
+  /* src: url('../fonts/ZaridSans-Regular.ttf') */
+/* } */
+/*  */
+/* @font-face { */
+  /* font-family: 'Zarid'; */
+  /* font-weight : medium; */
+  /* src: url('../fonts/ZaridSans-Medium.ttf'); */
+/* } */
+/*  */
+/* @font-face { */
+  /* font-family: 'Zarid'; */
+  /* font-weight : 300; */
+  /* src: url('../fonts/ZaridSans-SemiBold.ttf') format(‘truetype’); */
+/* }  */
+
+
 * {
     box-sizing: border-box;
 }
 html, body {
-    min-height: 100vh;
+    height: 100%;
+    width: 100%;
 }
 hmtl {
     font-size: 62.5%;
 }
 body {
     font-size: 16px;
+    font-family: 'Zarid';
+
 }
+
+
+/* TITLES */
+h1 {
+    font-family: 'Fedra';
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+
+
+
+/* BUTTONS */
+
+.button {
+    vertical-align : middle ;
+    border: 1px solid white;
+    border-radius: 40px;
+    font-family: 'Zarid';
+    font-size: 12px;
+    background-color: transparent;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+

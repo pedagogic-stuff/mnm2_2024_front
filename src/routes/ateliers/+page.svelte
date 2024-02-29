@@ -18,6 +18,7 @@
             <li><a href="/ateliers/{atelier.id}">{atelier.attributes?.NomArtisan}</a></li>
         {/each}
     </ul>
+    
 </section>
 
 

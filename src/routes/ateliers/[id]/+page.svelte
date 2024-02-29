@@ -1,6 +1,7 @@
 <script>
+    import ListeAteliers from '$lib/Components/ListeAteliers.svelte'
 	export let data;
-	$: ({ atelier } = data);
+	$: ({ atelier, ateliers } = data);
 
 </script>
 
@@ -37,3 +38,6 @@
             {/each}
         </ul>
     </div>
+
+
+    <ListeAteliers {ateliers} />

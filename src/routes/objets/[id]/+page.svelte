@@ -1,14 +1,10 @@
 <script>
-	export let data;
-	$: ({ objet } = data);
+    import ListeObjets from '$lib/Components/ListeObjets.svelte'
 
+	export let data;
+	$: ({ objet, objets } = data);
 
 	let modelviewer, orbit, target, script;
-
-    $: {
-		console.log(modelviewer)
-		console.log(orbit)
-	}
 
 	const getCameraOrbit = () => {
 		orbit = modelviewer.getCameraOrbit()
@@ -94,6 +90,8 @@
 
 </section>
 
+
+<ListeObjets {objets} />
 
 <style>
     section {

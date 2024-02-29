@@ -1,15 +1,14 @@
 <script>
     export let ateliers = '';
-
-    $: console.log('ateliers: ', ateliers);
-
 </script>
 
 
 <ul>
-    {#each ateliers.data as atelier }
-        <li><a href="/ateliers/{atelier.id}">{atelier.attributes?.NomArtisan}</a></li>
-    {/each}
+    {#if ateliers.data?.length > 0 }
+        {#each ateliers.data as atelier }
+            <li><a href="/ateliers/{atelier?.id}">{atelier.attributes?.NomArtisan}</a></li>
+        {/each}
+    {/if}
 </ul>
 
 

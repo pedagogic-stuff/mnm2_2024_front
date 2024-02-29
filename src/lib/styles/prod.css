@@ -44,6 +44,14 @@ body {
 
 }
 
+/* LISTS */
+
+ul[class] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 
 /* TITLES */
 h1 {

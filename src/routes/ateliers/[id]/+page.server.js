@@ -4,7 +4,9 @@
 
 export async function load({ params }) {
 
-    const url = `https://artisans.stagingserver.fr/api/ateliers`;
+    let populate = `populate[objet_3_ds][populate]=*&populate[IllustrationAtelier][populate]=*`
+
+    const url = `https://artisans.stagingserver.fr/api/ateliers?${populate}`;
     const rep1 =  await fetch(url)
     const ateliers = await rep1.json();
 

@@ -1,7 +1,22 @@
 <script>
     import ListeAteliers from '$lib/Components/ListeAteliers.svelte'
-	export let data;
+    import AtelierInformationsRaw from '$lib/Components/AtelierInformationsRaw.svelte'
+    import ChoixObjet from '$lib/Components/ChoixObjet.svelte'
+
+
+    export let data;
 	$: ({ atelier, ateliers } = data);
+
+    let step = -1;
+    $: console.log('step: ', step);
+
+
+    const launchSequence = () => {
+        step += 1;
+    }
+    const resetSequence = () => {
+        step = -1;
+    }
 
 </script>
 
@@ -10,34 +25,16 @@
 	<meta name="description" content="Ateliers d'artisans" />
 </svelte:head>
 
-    <h1>{atelier.data?.attributes?.NomArtisan}</h1>
-
-    <div>
-        <h2>CouleurFond</h2>
-        <p>{atelier.data?.attributes?.CouleurFond}</p>
-    </div>
+    <button on:click={() => launchSequence() }>Launch sequence</button>
+    <button on:click={() => resetSequence() }>Reset sequence</button>
 
 
-    <div>
-        <h2>IllustrationAtelier</h2>
-        <p><img src="{atelier.data?.attributes?.IllustrationAtelier.data.attributes.formats.large.url}" alt=""></p>
-    </div>
+    {#if step === -1}
+        <AtelierInformationsRaw {atelier} />
+    {:else if step === 0}
+        <ChoixObjet objets={atelier.data.attributes.objet_3_ds} />
+    {/if}
 
-
-    <div>
-        <h2>TextPresentation</h2> 
-        <p>{atelier.data?.attributes?.TextPresentation}</p>
-    </div>
-
-	<div>
-        <h2>objet_3_ds</h2>
-        <ul>
-            {#each atelier.data?.attributes?.objet_3_ds.data as obj}
-                <li>
-                    <a href="/objets/{obj.id}">{obj.attributes.CodeObjet}</a> - {obj.attributes.CartelSimple} - {obj.attributes.CoordonnesObjet}</li>
-            {/each}
-        </ul>
-    </div>
 
 
     <ListeAteliers {ateliers} />

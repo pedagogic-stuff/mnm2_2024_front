@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    min-height: 100vh;
+}
+hmtl {
+    font-size: 62.5%;
+}
+body {
+    background-color: lightgoldenrodyellow;
+    font-size: 16px;
+}

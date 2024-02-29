@@ -37,36 +37,50 @@
 
     <h1><em>Code Objet</em> : {objet.data?.attributes?.CodeObjet}</h1>
     
-    <p><em>CarteZone</em> : <img src="{objet.data?.attributes?.CarteZone.data.attributes.formats.large.url}" alt=""></p>
+    <div>
+        <h2>CarteZone</h2>
+        <p><img src="{objet.data?.attributes?.CarteZone.data.attributes.formats.large.url}" alt=""></p>
+    </div>
+
 
     <div>
-        <em>qcms</em> : 
+        <h2>qcms</h2> 
         <ul>
             {#each objet.data?.attributes?.qcms.data as qcm}
                 <li>
-                    <span>Question : {qcm.attributes.Question}</span>
+                    <h3>Question : {qcm.attributes.Question}</h3>
                     <ul>
                         {#each qcm.attributes.reponse as rep }
                             <li>{rep.Choix} - {rep.VraiFaux}</li>
                         {/each}
                     </ul>
-                    <p>CartelVrai : {qcm.attributes.CartelVrai}</p>
-                    <p>CartelFaux : {qcm.attributes.CartelFaux}</p>
+                    <p><strong>CartelVrai</strong> : {qcm.attributes.CartelVrai}</p>
+                    <p><strong>CartelFaux</strong> : {qcm.attributes.CartelFaux}</p>
                 </li>
             {/each}
         </ul>
     </div>
 
-    <p><em>POI</em> : 
-        {#each objet.data?.attributes?.POI as poi}
-            <li>{poi.Cartel}</li>
-        {/each}
-    </p>
+    <div>
+        <h2>POI</h2> 
+        <ul>
+            {#each objet.data?.attributes?.POI as poi}
+                <li>{poi.Cartel}</li>
+            {/each}
+        </ul>
+    </div>
     
-    <p><em>CoordonnesObjet</em> : {objet.data?.attributes?.CoordonnesObjet}</p>
+    <div><h2>CoordonnesObjet</h2>
+        <p>{objet.data?.attributes?.CoordonnesObjet}</p>
+    </div>
 
-    <p><em>fichier3d</em> : {objet.data?.attributes?.fichier3d}</p>
+    <div>
+        <h2>fichier3d</h2>
+        <p>{objet.data?.attributes?.fichier3d}</p>
+    </div>
+</section>
 
+<section>
     <!-- Use it like any other HTML element -->
 	<model-viewer bind:this={modelviewer} alt="" src="{objet.data?.attributes?.fichier3d?.data?.attributes?.url}" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
 
@@ -84,6 +98,9 @@
 <style>
     section {
         margin: 40px 0;
+    }
+    div {
+        margin-bottom: 40px;
     }
     model-viewer {
         border: 1px solid;

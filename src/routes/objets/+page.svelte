@@ -8,7 +8,10 @@
 	<meta name="description" content="Ateliers d'artisans" />
 </svelte:head>
 
+
 <section>
+
+    <h1>Les Objets</h1>
 
     <ul>
         {#each objets.data as obj }

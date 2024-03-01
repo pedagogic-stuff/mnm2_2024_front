@@ -15,62 +15,69 @@
 </svelte:head>
 
 
-<section>
-    <a href="/objets">Retour aux objets</a>
-</section>
+<div class="relative infos_container">
 
-<section>
+    <section>
+        <a href="/objets">Retour aux objets</a>
+    </section>
 
-    <h1><em>Code Objet</em> : {objet.data?.attributes?.CodeObjet}</h1>
-    
-    <div>
-        <h2>CarteZone</h2>
-        <p><img src="{objet.data?.attributes?.CarteZone.data.attributes.formats.large.url}" alt=""></p>
-    </div>
+    <section>
+
+        <h1><em>Code Objet</em> : {objet.data?.attributes?.CodeObjet}</h1>
+        
+        <div>
+            <h2>CarteZone</h2>
+            <p><img src="{objet.data?.attributes?.CarteZone.data.attributes.formats.large.url}" alt=""></p>
+        </div>
 
 
-    <div>
-        <h2>qcms</h2> 
-        <ul>
-            {#each objet.data?.attributes?.qcms.data as qcm}
-                <li>
-                    <h3>Question : {qcm.attributes.Question}</h3>
-                    <ul>
-                        {#each qcm.attributes.reponse as rep }
-                            <li>{rep.Choix} - {rep.VraiFaux}</li>
-                        {/each}
-                    </ul>
-                    <p><strong>CartelVrai</strong> : {qcm.attributes.CartelVrai}</p>
-                    <p><strong>CartelFaux</strong> : {qcm.attributes.CartelFaux}</p>
-                </li>
-            {/each}
-        </ul>
-    </div>
+        <div>
+            <h2>qcms</h2> 
+            <ul>
+                {#each objet.data?.attributes?.qcms.data as qcm}
+                    <li>
+                        <h3>Question : {qcm.attributes.Question}</h3>
+                        <ul>
+                            {#each qcm.attributes.reponse as rep }
+                                <li>{rep.Choix} - {rep.VraiFaux}</li>
+                            {/each}
+                        </ul>
+                        <p><strong>CartelVrai</strong> : {qcm.attributes.CartelVrai}</p>
+                        <p><strong>CartelFaux</strong> : {qcm.attributes.CartelFaux}</p>
+                    </li>
+                {/each}
+            </ul>
+        </div>
 
-    <div>
-        <h2>POI</h2> 
-        <ul>
-            {#each objet.data?.attributes?.POI as poi}
-                <li>{poi.Cartel}</li>
-            {/each}
-        </ul>
-    </div>
-    
-    <div><h2>CoordonnesObjet</h2>
-        <p>{objet.data?.attributes?.CoordonnesObjet}</p>
-    </div>
+        <div>
+            <h2>POI</h2> 
+            <ul>
+                {#each objet.data?.attributes?.POI as poi}
+                    <li>{poi.Cartel}</li>
+                {/each}
+            </ul>
+        </div>
+        
+        <div><h2>CoordonnesObjet</h2>
+            <p>{objet.data?.attributes?.CoordonnesObjet}</p>
+        </div>
 
-    <div>
-        <h2>fichier3d</h2>
-        <p>{objet.data?.attributes?.fichier3d}</p>
-    </div>
-</section>
+        <div>
+            <h2>fichier3d</h2>
+            <p>{objet.data?.attributes?.fichier3d}</p>
+        </div>
+    </section>
+</div>
 
 <ModelViewer {objet} />
 
 <ListeObjets {objets} />
 
 <style>
+    .infos_container {
+        width: 50%;
+        padding: 40px 0 400px;
+    }
     section {
         margin: 40px 0;
     }

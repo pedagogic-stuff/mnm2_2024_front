@@ -25,7 +25,6 @@
 
 <style>
 	main {
-		max-width: 1000px;
 		width: 90%;
 		margin: 60px auto;
 	}

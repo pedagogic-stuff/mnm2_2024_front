@@ -54,9 +54,13 @@
         }>{obj.attributes.CodeObjet}</button>
     {/each}
 
-    {#if objet}
-        <h3>{objet.data.attributes.CodeObjet}</h3>
+</section>
 
+    {#if objet}
+        <div class="relative">
+            <h3>{objet.data.attributes.CodeObjet}</h3>
+        </div>
+        
         {#if step == 'qcm' }
             <QCMs bind:qcmDone={qcmDone} bind:exposure={exposure} qcms={objet.data.attributes.qcms} />
             <ModelViewer {objet} exposure={exposure} />
@@ -69,4 +73,3 @@
     {/if}
 
 
-</section>

@@ -22,7 +22,7 @@
 
 </script>
 
-<div>
+<div class="qcm_container relative">
     <h3>{qcm.attributes.Question}</h3>
 
     <ul class="">

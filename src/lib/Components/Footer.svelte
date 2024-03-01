@@ -12,6 +12,7 @@
 
 footer {
     position: fixed;
+    z-index: 1;
     right: 20px;
     bottom: 20px;
     background-color: gray;

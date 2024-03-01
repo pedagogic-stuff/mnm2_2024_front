@@ -15,6 +15,7 @@
 <style>
     ul {
         position: fixed;
+        z-index: 2;
         bottom: 20px;
         left: 20px;
         background: red;

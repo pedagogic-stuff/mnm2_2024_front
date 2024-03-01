@@ -53,7 +53,7 @@
             <h2>POI</h2> 
             <ul>
                 {#each objet.data?.attributes?.POI as poi}
-                    <li>{poi.Cartel}</li>
+                    <li><strong>{poi.Cartel}</strong> - <img width="300" src="{poi.Media.data.attributes.url}" alt="fe"></li>
                 {/each}
             </ul>
         </div>
@@ -75,8 +75,8 @@
 
 <style>
     .infos_container {
-        width: 50%;
-        padding: 40px 0 400px;
+        width: 40vw;
+        padding: 40px 0 100px;
     }
     section {
         margin: 40px 0;

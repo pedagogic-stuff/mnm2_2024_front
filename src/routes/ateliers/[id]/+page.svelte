@@ -21,7 +21,7 @@
 </script>
 
 <svelte:head>
-	<title>Ateliers d'artisans - {atelier.data?.attributes?.NomArtisan}</title>
+	<title>Ateliers d'artisans - {atelier.data?.attributes?.nomArtisan}</title>
 	<meta name="description" content="Ateliers d'artisans" />
 </svelte:head>
 
@@ -32,9 +32,19 @@
     {#if step === -1}
         <AtelierInformationsRaw {atelier} />
     {:else if step === 0}
-        <ChoixObjet reset={true} objets={atelier.data.attributes.objet_3_ds} />
+        <ChoixObjet reset={true} objets={atelier.data.attributes.objets} />
     {/if}
 
 
 
     <ListeAteliers {ateliers} />
+
+
+
+    <style>
+
+    .infos_container {
+        width: 40vw;
+        padding: 40px 0 100px;
+    }
+    </style>

@@ -4,13 +4,14 @@
 
 	export let data;
 	$: ({ objet, objets } = data);
+    $: ({ nomObjet, CodeObjet, CarteZone, qcms, POI, CoordonnesObjet, Fichier3d, CartelSimple } = objet.data.attributes);
 
-
+    $: console.log('objet: ', objet)
 
 </script>
 
 <svelte:head>
-	<title>Ateliers d'artisans - Objet {objet.data?.attributes?.CodeObjet}</title>
+	<title>Ateliers d'artisans - Objet {nomObjet}</title>
 	<meta name="description" content="Ateliers d'artisans" />
 </svelte:head>
 
@@ -23,48 +24,60 @@
 
     <section>
 
-        <h1><em>Code Objet</em> : {objet.data?.attributes?.CodeObjet}</h1>
+        <h1><em>nomObjet</em> : {nomObjet} - {CodeObjet} </h1>
         
-        <div>
+        <!-- <div>
             <h2>CarteZone</h2>
-            <p><img src="{objet.data?.attributes?.CarteZone.data.attributes.formats.large.url}" alt=""></p>
-        </div>
+            <p><img src="{CarteZone.data?.attributes?.formats.large.url}" alt=""></p>
+        </div> -->
 
+        
+        {#if CartelSimple }
+            {#each CartelSimple as p}
+                {#each p.children as child}
+                    <p>{child.text}</p>
+                {/each}
+                
+            {/each}
+        {/if}
 
         <div>
             <h2>qcms</h2> 
             <ul>
-                {#each objet.data?.attributes?.qcms.data as qcm}
-                    <li>
-                        <h3>Question : {qcm.attributes.Question}</h3>
-                        <ul>
-                            {#each qcm.attributes.reponse as rep }
-                                <li>{rep.Choix} - {rep.VraiFaux}</li>
-                            {/each}
-                        </ul>
-                        <p><strong>CartelVrai</strong> : {qcm.attributes.CartelVrai}</p>
-                        <p><strong>CartelFaux</strong> : {qcm.attributes.CartelFaux}</p>
-                    </li>
-                {/each}
+                {#if qcms.data.length > 0 }
+                    {#each qcms.data as qcm}
+                        <li>
+                            <h3>question : {qcm.attributes.question}</h3>
+                            <ul>
+                                {#each qcm.attributes.reponses as rep }
+                                    <li>{rep.text} - {rep.vraifaux}</li>
+                                {/each}
+                            </ul>
+                            <p><strong>cartel</strong> : {qcm.attributes.cartel}</p>
+                        </li>
+                    {/each}
+                {/if}
             </ul>
         </div>
 
         <div>
             <h2>POI</h2> 
             <ul>
-                {#each objet.data?.attributes?.POI as poi}
-                    <li><strong>{poi.Cartel}</strong> - <img width="300" src="{poi.Media.data.attributes.url}" alt="fe"></li>
-                {/each}
+                {#if POI.length > 0 }
+                    {#each POI as poi}
+                        <li><strong>{poi.Cartel}</strong> - <img width="300" src="{poi.Media?.data?.attributes?.url}" alt="fe"></li>
+                    {/each}
+                {/if}
             </ul>
         </div>
         
         <div><h2>CoordonnesObjet</h2>
-            <p>{objet.data?.attributes?.CoordonnesObjet}</p>
+            <p>{CoordonnesObjet}</p>
         </div>
 
         <div>
-            <h2>fichier3d</h2>
-            <p>{objet.data?.attributes?.fichier3d}</p>
+            <h2>Fichier3d</h2>
+            <p>{Fichier3d}</p>
         </div>
     </section>
 </div>

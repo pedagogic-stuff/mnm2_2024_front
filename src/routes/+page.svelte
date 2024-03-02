@@ -12,7 +12,7 @@
 
     <ul>
         {#each ateliers.data as atelier }
-            <li><a href="/ateliers/{atelier.id}">{atelier.attributes?.NomArtisan}</a></li>
+            <li><a href="/ateliers/{atelier.id}">{atelier.attributes?.nomArtisan}</a></li>
         {/each}
     </ul>
     

@@ -1,6 +1,8 @@
 <script>
 	export let data;
 	$: ({ objets } = data);
+
+    $: console.log('objets: ', objets)
 </script>
 
 <svelte:head>
@@ -15,7 +17,7 @@
 
     <ul>
         {#each objets.data as obj }
-            <li><a href="/objets/{obj.id}">{obj.attributes?.CodeObjet}</a></li>
+            <li><a href="/objets/{obj.id}">{obj.attributes?.nomObjet}</a></li>
         {/each}
     </ul>
 </section>

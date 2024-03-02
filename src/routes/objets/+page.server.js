@@ -1,5 +1,5 @@
 
-const url = `https://artisans.stagingserver.fr/api/objet3-ds`;
+const url = `https://artisans.stagingserver.fr/api/objets`;
 
 const reponse =  await fetch(url)
 const objets = await reponse.json();

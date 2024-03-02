@@ -29,11 +29,11 @@
 	<model-viewer 
         bind:this={modelviewer}
         alt="" 
-        src="{objet.data?.attributes?.fichier3d?.data?.attributes?.url}" 
+        src="{objet.data?.attributes?.Fichier3d?.data?.attributes?.url}" 
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 
-        camera-orbit="-0.8350583449179252rad 2.2017690448546015rad 633.7995208371079m" 
+        camera-orbit="{objet.data?.attributes.CoordonnesObjet}" 
         exposure={exposure}
     >
 

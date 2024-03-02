@@ -6,7 +6,7 @@
 
 <ul>
     {#each objets.data as obj }
-        <li><a href="/objets/{obj.id}">{obj.attributes?.CodeObjet}</a></li>
+        <li><a href="/objets/{obj.id}">{obj.attributes?.nomObjet}</a></li>
     {/each}
 </ul>
 

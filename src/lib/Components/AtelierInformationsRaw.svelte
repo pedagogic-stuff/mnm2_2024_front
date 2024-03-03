@@ -1,46 +1,50 @@
 <script>
+    import RichText from '$lib/Components/RichText.svelte';
+
     export let atelier = '';
     
     $: console.log('atelier: ', atelier);
 
+    $: ({ nomArtisan, CodeCouleur, illustrationAtelier, illustrationArtisan, Vignettepersonnage, Textepresentation, objets } = atelier.data.attributes);
+
 </script>
 
-<h1>{atelier.data?.attributes?.nomArtisan}</h1>
+    <h1>{nomArtisan}</h1>
 
     <div>
         <h2>CodeCouleur</h2>
-        <p>{atelier.data?.attributes?.CodeCouleur}</p>
+        <p>{CodeCouleur}</p>
     </div>
 
 
     <div>
         <h2>illustrationAtelier</h2>
-        <p><img src="{atelier.data?.attributes?.illustrationAtelier?.data?.attributes?.formats.large.url}" alt=""></p>
+        <p><img src="{illustrationAtelier?.data?.attributes?.formats.small.url}" alt=""></p>
     </div>
 
     <div>
         <h2>illustrationArtisan</h2>
-        <p><img src="{atelier.data?.attributes?.illustrationArtisan?.data?.attributes?.formats.large.url}" alt=""></p>
+        <p><img src="{illustrationArtisan?.data?.attributes?.formats.small.url}" alt=""></p>
     </div>
 
     <div>
         <h2>Vignettepersonnage</h2>
-        <p><img src="{atelier.data?.attributes?.Vignettepersonnage?.data?.attributes?.formats.large.url}" alt=""></p>
+        <p><img src="{Vignettepersonnage?.data?.attributes?.formats.small.url}" alt=""></p>
     </div>
 
     
 
     <div>
         <h2>TextPresentation</h2> 
-        <p>{atelier.data?.attributes?.Textepresentation}</p>
+        <RichText blocks={Textepresentation} />
     </div>
 
 	<div>
-        <h2>objet_3_ds</h2>
+        <h2>objets</h2>
         <ul>
-            {#each atelier.data?.attributes?.objets.data as obj}
+            {#each objets.data as obj}
                 <li>
-                    <a href="/objets/{obj.id}">{obj.attributes?.CodeObjet}</a> - {obj.attributes?.CartelSimple} - {obj.attributes?.CoordonnesObjet}</li>
+                    <a href="/objets/{obj.id}">{obj.attributes?.nomObjet}</a> - {obj.attributes?.CartelSimple} - {obj.attributes?.CoordonnesObjet}</li>
             {/each}
         </ul>
     </div>

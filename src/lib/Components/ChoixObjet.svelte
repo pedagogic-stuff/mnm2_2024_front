@@ -30,8 +30,8 @@
     }
 
     const launchObjPath = async id => {
-        let populate = `populate[CarteZone][populate]=*&populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d][populate]=*`
-        const url = `https://artisans.stagingserver.fr/api/objet3-ds/${id}?${populate}`;
+        let populate = `populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d]=*&populate[CarteZone]=*`
+        const url = `https://artisans.stagingserver.fr/api/objets/${id}?${populate}`;
         const reponse =  await fetch(url)
         objet = await reponse.json();
         return objet;
@@ -51,14 +51,14 @@
                 step = 'qcm';
                 launchObjPath(obj.id)
             }
-        }>{obj.attributes.CodeObjet}</button>
+        }>{obj.attributes.nomObjet}</button>
     {/each}
 
 </section>
 
     {#if objet}
         <div class="relative">
-            <h3>{objet.data.attributes.CodeObjet}</h3>
+            <h3>{objet.data.attributes.nomObjet}</h3>
         </div>
         
         {#if step == 'qcm' }

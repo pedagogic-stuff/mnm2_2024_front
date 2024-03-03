@@ -1,4 +1,6 @@
 <script>
+	import RichText from "./RichText.svelte";
+
     export let objet = '';
     export let exposure = 1;
     export let hotspots = [];
@@ -40,10 +42,10 @@
         {#if hotspots.length > 0}
             {#each hotspots as poi, i }
 
-                <button class="Hotspot" slot="hotspot-1" data-position="-226.14160109560976m 11.918746291814777m 43.74542844867127m" data-normal="-0.6981260082270647m 0.40286001718554026m -0.5918816462690922m" data-visibility-attribute="visible">
+                <button class="Hotspot" slot="hotspot-1" data-position="{poi.coordonnees}" data-normal="-0.6981260082270647m 0.40286001718554026m -0.5918816462690922m" data-visibility-attribute="visible">
                     <div class="HotspotAnnotation">
-                        <p>{poi.Cartel}</p>
-                        <img width="300" src="{poi.Media.data.attributes.url}" alt="fe">
+                        <RichText blocks={poi.Cartel} />
+                        <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
                     </div>
                 </button>
 

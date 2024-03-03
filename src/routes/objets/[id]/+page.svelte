@@ -1,6 +1,7 @@
 <script>
     import ListeObjets from '$lib/Components/ListeObjets.svelte'
     import ModelViewer from '$lib/Components/ModelViewer.svelte';
+    import RichText from '$lib/Components/RichText.svelte';
 
 	export let data;
 	$: ({ objet, objets } = data);
@@ -33,12 +34,7 @@
 
         
         {#if CartelSimple }
-            {#each CartelSimple as p}
-                {#each p.children as child}
-                    <p>{child.text}</p>
-                {/each}
-                
-            {/each}
+            <RichText blocks={CartelSimple} />
         {/if}
 
         <div>
@@ -47,13 +43,13 @@
                 {#if qcms.data.length > 0 }
                     {#each qcms.data as qcm}
                         <li>
-                            <h3>question : {qcm.attributes.question}</h3>
+                            <h3>question : {qcm.attributes.Question}</h3>
                             <ul>
-                                {#each qcm.attributes.reponses as rep }
+                                {#each qcm.attributes.Responses as rep }
                                     <li>{rep.text} - {rep.vraifaux}</li>
                                 {/each}
                             </ul>
-                            <p><strong>cartel</strong> : {qcm.attributes.cartel}</p>
+                            <p><strong>cartel</strong> : <RichText blocks={qcm.attributes.cartel} /> </p>
                         </li>
                     {/each}
                 {/if}
@@ -65,7 +61,9 @@
             <ul>
                 {#if POI.length > 0 }
                     {#each POI as poi}
-                        <li><strong>{poi.Cartel}</strong> - <img width="300" src="{poi.Media?.data?.attributes?.url}" alt="fe"></li>
+                        <li>
+                            <RichText blocks={poi.Cartel} />
+                            <img width="300" src="{poi.Media?.data?.attributes?.url}" alt="fe"></li>
                     {/each}
                 {/if}
             </ul>
@@ -77,7 +75,7 @@
 
         <div>
             <h2>Fichier3d</h2>
-            <p>{Fichier3d}</p>
+            <p>{Fichier3d.data.attributes.name}</p>
         </div>
     </section>
 </div>

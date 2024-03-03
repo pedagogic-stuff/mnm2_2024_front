@@ -7,7 +7,7 @@ export async function load({ params }) {
     const rep1 =  await fetch(url1)
     const objets = await rep1.json();
 
-    let populate = `populate[CarteZone]=*&populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d][populate]=*`
+    let populate = `populate[CarteZone]=*&populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d]=*`
     const url = `https://artisans.stagingserver.fr/api/objets/${params.id}?${populate}`;
 console.log(url)
     const reponse =  await fetch(url)

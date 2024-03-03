@@ -1,6 +1,5 @@
 <script>
     export let blocks = [];
-    $: console.log(blocks);
 </script>
 
 

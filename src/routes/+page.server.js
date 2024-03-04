@@ -1,5 +1,5 @@
 
-const artisansURL = `https://artisans.stagingserver.fr/api/ateliers`;
+const artisansURL = `https://artisans.stagingserver.fr/api/ateliers?populate=*`;
 
 const reponse =  await fetch(artisansURL)
 const ateliers = await reponse.json();

@@ -11,7 +11,7 @@
 
     <h1>{nomArtisan}</h1>
 
-    <div>
+    <div style="background-color: {CodeCouleur}">
         <h2>CodeCouleur</h2>
         <p>{CodeCouleur}</p>
     </div>
@@ -44,7 +44,10 @@
         <ul>
             {#each objets.data as obj}
                 <li>
-                    <a href="/objets/{obj.id}">{obj.attributes?.nomObjet}</a> - {obj.attributes?.CartelSimple} - {obj.attributes?.CoordonnesObjet}</li>
+                    <a href="/objets/{obj.id}">
+                        {obj.attributes?.nomObjet}
+                    </a>
+                </li>
             {/each}
         </ul>
     </div>

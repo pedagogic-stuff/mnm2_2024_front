@@ -35,7 +35,7 @@
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 
-        camera-orbit="{objet.data?.attributes.CoordonnesObjet}" 
+        camera-orbit="{objet.data?.attributes.CoordonneesCamera}" 
         exposure={exposure}
     >
 

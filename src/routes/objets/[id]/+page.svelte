@@ -5,9 +5,7 @@
 
 	export let data;
 	$: ({ objet, objets } = data);
-    $: ({ nomObjet, CodeObjet, CarteZone, qcms, POI, CoordonnesObjet, Fichier3d, CartelSimple } = objet.data.attributes);
-
-    $: console.log('objet: ', objet)
+    $: ({ nomObjet, CodeObjet, CarteZone, visuelObjet2d, qcms, POI, CoordonneesCamera, Fichier3d, CartelSimple } = objet.data.attributes);
 
 </script>
 
@@ -27,10 +25,19 @@
 
         <h1><em>nomObjet</em> : {nomObjet} - {CodeObjet} </h1>
         
-        <!-- <div>
+        <div>
             <h2>CarteZone</h2>
-            <p><img src="{CarteZone.data?.attributes?.formats.large.url}" alt=""></p>
-        </div> -->
+            {#if CarteZone }
+                <p><img src="{CarteZone.data?.attributes?.formats.large.url}" alt=""></p>
+            {/if}
+        </div> 
+
+        <div>
+            <h2>visuelObjet2d</h2>
+            {#if visuelObjet2d }
+                <p><img src="{visuelObjet2d.data?.attributes?.formats.large.url}" alt=""></p>
+            {/if}
+        </div> 
 
         
         {#if CartelSimple }
@@ -69,8 +76,8 @@
             </ul>
         </div>
         
-        <div><h2>CoordonnesObjet</h2>
-            <p>{CoordonnesObjet}</p>
+        <div><h2>CoordonneesCamera</h2>
+            <p>{CoordonneesCamera}</p>
         </div>
 
         <div>

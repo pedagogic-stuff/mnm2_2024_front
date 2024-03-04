@@ -41,7 +41,7 @@
 </script>
 
 
-<section>
+<section class="infos_container">
 
     <h2>Choisi un objet : </h2>
 
@@ -56,6 +56,7 @@
 
 </section>
 
+<section class="infos_container">
     {#if objet}
         <div class="relative">
             <h3>{objet.data.attributes.nomObjet}</h3>
@@ -72,4 +73,12 @@
         
     {/if}
 
+</section>
 
+
+<style>
+    .infos_container {
+        width: 40vw;
+        padding: 40px 0 100px;
+    }
+</style>

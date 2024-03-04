@@ -40,11 +40,3 @@
     <ListeAteliers {ateliers} />
 
 
-
-    <style>
-
-    .infos_container {
-        width: 40vw;
-        padding: 40px 0 100px;
-    }
-    </style>

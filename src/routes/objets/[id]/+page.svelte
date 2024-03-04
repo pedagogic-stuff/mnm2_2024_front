@@ -7,6 +7,8 @@
 	$: ({ objet, objets } = data);
     $: ({ nomObjet, CodeObjet, CarteZone, visuelObjet2d, qcms, POI, CoordonneesCamera, Fichier3d, CartelSimple } = objet.data.attributes);
 
+    $: console.log('objet: ', objet)
+
 </script>
 
 <svelte:head>
@@ -82,7 +84,7 @@
 
         <div>
             <h2>Fichier3d</h2>
-            <p>{Fichier3d.data.attributes.name}</p>
+            <p>{Fichier3d.data?.attributes.name}</p>
         </div>
     </section>
 </div>

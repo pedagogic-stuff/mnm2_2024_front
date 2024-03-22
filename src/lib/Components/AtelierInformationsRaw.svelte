@@ -17,20 +17,20 @@
     </div>
 
 
-    <div>
+    <!-- <div>
         <h2>illustrationAtelier</h2>
         <p><img src="{illustrationAtelier?.data?.attributes?.url}" alt=""></p>
-    </div>
+    </div> -->
 
     <div>
         <h2>illustrationArtisan</h2>
         <p><img src="{illustrationArtisan?.data?.attributes?.url}" alt=""></p>
     </div>
 
-    <div>
+    <!-- <div>
         <h2>Vignettepersonnage</h2>
         <p><img src="{Vignettepersonnage?.data?.attributes?.url}" alt=""></p>
-    </div>
+    </div> -->
 
     
 
@@ -39,15 +39,3 @@
         <RichText blocks={Textepresentation} />
     </div>
 
-	<div>
-        <h2>objets</h2>
-        <ul>
-            {#each objets.data as obj}
-                <li>
-                    <a href="/objets/{obj.id}">
-                        {obj.attributes?.nomObjet}
-                    </a>
-                </li>
-            {/each}
-        </ul>
-    </div>

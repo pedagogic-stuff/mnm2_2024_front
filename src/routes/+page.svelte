@@ -14,6 +14,7 @@
 
 <section>
 
+	<div class="homeIntro">Message d'introduction</div>
     <ul>
         {#each ateliers.data as atelier }
 			<BlockArtisan {atelier} />
@@ -24,14 +25,13 @@
 
 
 <style>
-	a {
-		font-size: 20px;
-		padding: 3px 0;
+	.homeIntro {
+		border-radius: 20px;
+		padding: 10px 20px;
+		background-color: green;
+		margin: 0 auto 40px auto;
+		max-width: 600px;
 		display: flex;
-		gap: 20px;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 	}
 	ul {
 		display: flex;

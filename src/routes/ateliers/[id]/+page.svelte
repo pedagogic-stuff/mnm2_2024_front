@@ -2,10 +2,11 @@
     import ListeAteliers from '$lib/Components/ListeAteliers.svelte'
     import AtelierInformationsRaw from '$lib/Components/AtelierInformationsRaw.svelte'
     import ChoixObjet from '$lib/Components/ChoixObjet.svelte'
-
+    import AtelierObjets from '$lib/Components/Atelier/AtelierObjets.svelte';
 
     export let data;
 	$: ({ atelier, ateliers } = data);
+    $: ({ nomArtisan, CodeCouleur, illustrationAtelier, illustrationArtisan, Vignettepersonnage, Textepresentation, objets } = atelier.data.attributes);
 
     let step = -1;
     $: console.log('step: ', step);
@@ -29,21 +30,32 @@
     <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier.data.attributes.url}" alt="">
 
     <div class="atelierContent">
-        <button on:click={() => launchSequence() }>Launch sequence</button>
-        <button on:click={() => resetSequence() }>Reset sequence</button>
+
+        <div>
+            <button on:click={() => launchSequence() }>Launch sequence</button>
+            <button on:click={() => resetSequence() }>Reset sequence</button>
+        </div>
 
 
-        {#if step === -1}
-            <AtelierInformationsRaw {atelier} />
-        {:else if step === 0}
-            <ChoixObjet reset={true} objets={atelier.data.attributes.objets} />
-        {/if}
+        <div class="cols">
 
+            <div class="leftCol">
+                {#if step === -1}
+                    <AtelierInformationsRaw {atelier} />
+                {:else if step === 0}
+                    <ChoixObjet reset={true} objets={atelier.data.attributes.objets} />
+                {/if}
+            </div>
 
-
-        <ListeAteliers {ateliers} />
+            <div class="rightCol">
+                <AtelierObjets {objets} />
+            </div>
+        </div>
         
     </div>
+
+    <ListeAteliers {ateliers} />
+
 <style>
     .atelierBg {
         position: fixed;
@@ -61,4 +73,13 @@
         z-index: 2;
         color: white;
     }
+    .cols {
+        display: flex;
+    }
+    .leftCol {
+        width: 70%;
+    }
+    .rightCol {
+        width: 30%;
+    }  
 </style>

@@ -27,7 +27,7 @@
     <h2>Cartel principal</h2>
 
     {#if CarteZone }
-        <p><img src="{CarteZone.data?.attributes?.formats.large.url}" alt=""></p>
+        <p><img src="{CarteZone.data?.attributes?.url}" alt=""></p>
     {/if}
 
     {#if CartelSimple }

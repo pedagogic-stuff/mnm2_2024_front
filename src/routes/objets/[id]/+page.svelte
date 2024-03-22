@@ -30,14 +30,14 @@
         <div>
             <h2>CarteZone</h2>
             {#if CarteZone }
-                <p><img src="{CarteZone.data?.attributes?.formats.large.url}" alt=""></p>
+                <p><img src="{CarteZone.data?.attributes?.url}" alt=""></p>
             {/if}
         </div> 
 
         <div>
             <h2>visuelObjet2d</h2>
             {#if visuelObjet2d }
-                <p><img src="{visuelObjet2d.data?.attributes?.formats.large.url}" alt=""></p>
+                <p><img src="{visuelObjet2d.data?.attributes?.url}" alt=""></p>
             {/if}
         </div> 
 

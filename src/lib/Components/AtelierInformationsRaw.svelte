@@ -19,17 +19,17 @@
 
     <div>
         <h2>illustrationAtelier</h2>
-        <p><img src="{illustrationAtelier?.data?.attributes?.formats.small.url}" alt=""></p>
+        <p><img src="{illustrationAtelier?.data?.attributes?.url}" alt=""></p>
     </div>
 
     <div>
         <h2>illustrationArtisan</h2>
-        <p><img src="{illustrationArtisan?.data?.attributes?.formats.small.url}" alt=""></p>
+        <p><img src="{illustrationArtisan?.data?.attributes?.url}" alt=""></p>
     </div>
 
     <div>
         <h2>Vignettepersonnage</h2>
-        <p><img src="{Vignettepersonnage?.data?.attributes?.formats.small.url}" alt=""></p>
+        <p><img src="{Vignettepersonnage?.data?.attributes?.url}" alt=""></p>
     </div>
 
     

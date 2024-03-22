@@ -1,4 +1,6 @@
 <script>
+	import BlockArtisan from '../lib/Components/blocks/BlockArtisan.svelte';
+
 	export let data;
 	$: ({ ateliers } = data);
 
@@ -14,12 +16,7 @@
 
     <ul>
         {#each ateliers.data as atelier }
-            <li>
-				<a href="/ateliers/{atelier.id}">
-					{atelier.attributes?.nomArtisan}
-					<img src="{atelier.attributes?.Vignettepersonnage?.data?.attributes?.formats.small.url}" alt="">
-				</a>
-			</li>
+			<BlockArtisan {atelier} />
         {/each}
     </ul>
     
@@ -41,7 +38,5 @@
 		gap: 40px;
 		flex-wrap: wrap;
 	}
-	li {
-		flex: 0 0 30%;
-	}
+
 </style>

@@ -5,7 +5,7 @@
 
 <div class="block">
     <a class="block_action" href="/ateliers/{atelier.id}">
-        <div class="button block_action">
+        <div class="button block_action" style="background-color:#{atelier.attributes?.CodeCouleur}">
             <span>{atelier.attributes?.nomArtisan}</span>
         </div>
 

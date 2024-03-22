@@ -6,7 +6,7 @@
 <ul>
     {#if ateliers.data?.length > 0 }
         {#each ateliers.data as atelier }
-            <li><a href="/ateliers/{atelier?.id}">{atelier.attributes?.nomArtisan}</a></li>
+            <li><a class="button" href="/ateliers/{atelier?.id}" class:active={atelier.id === 4}>{atelier.attributes?.nomArtisan}</a></li>
         {/each}
     {/if}
 </ul>
@@ -18,7 +18,6 @@
         z-index: 2;
         bottom: 20px;
         left: 20px;
-        background: red;
         color: white;
         display: flex;
         gap: 20px;
@@ -28,5 +27,9 @@
     }
     a {
         color: white;
+        font-size: 20px;
+    }
+    .active { 
+        background-color: black;
     }
 </style>

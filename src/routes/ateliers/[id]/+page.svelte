@@ -25,18 +25,40 @@
 	<meta name="description" content="Ateliers d'artisans" />
 </svelte:head>
 
-    <button on:click={() => launchSequence() }>Launch sequence</button>
-    <button on:click={() => resetSequence() }>Reset sequence</button>
+
+    <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier.data.attributes.url}" alt="">
+
+    <div class="atelierContent">
+        <button on:click={() => launchSequence() }>Launch sequence</button>
+        <button on:click={() => resetSequence() }>Reset sequence</button>
 
 
-    {#if step === -1}
-        <AtelierInformationsRaw {atelier} />
-    {:else if step === 0}
-        <ChoixObjet reset={true} objets={atelier.data.attributes.objets} />
-    {/if}
+        {#if step === -1}
+            <AtelierInformationsRaw {atelier} />
+        {:else if step === 0}
+            <ChoixObjet reset={true} objets={atelier.data.attributes.objets} />
+        {/if}
 
 
 
-    <ListeAteliers {ateliers} />
-
-
+        <ListeAteliers {ateliers} />
+        
+    </div>
+<style>
+    .atelierBg {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter:brightness(.7)
+    }
+    .atelierContent {
+        position: relative;
+        z-index: 2;
+        color: white;
+    }
+</style>

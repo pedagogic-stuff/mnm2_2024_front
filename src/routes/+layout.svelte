@@ -25,12 +25,8 @@
 
 <style>
 
+
 	@font-face {
-		font-family: "Custom";
-		src: url("$lib/fonts/Bitter-Regular.ttf");
-		font-display: swap;
-	}
-		@font-face {
 		font-family: "Fedra";
 		src: url("$lib/fonts/FedraSansPro-Bold.ttf");
 	}

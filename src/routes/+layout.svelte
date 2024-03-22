@@ -24,6 +24,33 @@
 
 
 <style>
+
+	@font-face {
+		font-family: "Custom";
+		src: url("$lib/fonts/Bitter-Regular.ttf");
+		font-display: swap;
+	}
+		@font-face {
+		font-family: "Fedra";
+		src: url("$lib/fonts/FedraSansPro-Bold.ttf");
+	}
+	
+	@font-face {
+		font-family: 'Zarid';
+		src: url('$lib/fonts/ZaridSans-Regular.ttf')
+	}
+	@font-face {
+		font-family: 'Zarid';
+		font-weight : medium;
+		src: url('$lib/fonts/ZaridSans-Medium.ttf');
+	}
+
+	@font-face {
+		font-family: 'Zarid';
+		font-weight : 300;
+		src: url('$lib/fonts/ZaridSans-SemiBold.ttf');
+	}
+
 	main {
 		width: 90%;
 		margin: 60px auto;

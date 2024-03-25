@@ -36,7 +36,7 @@
         bind:this={modelviewer}
         loading="eager"
         alt="" 
-        src="{objet.attributes?.URLsanstexture}" 
+        src="{objet.attributes?.Fichier3d?.data?.attributes?.url}" 
         poster="{objet.attributes?.visuelObjet2d?.data?.attributes?.url}"
         shadow-intensity="1" 
         camera-controls 

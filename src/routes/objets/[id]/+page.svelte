@@ -89,7 +89,7 @@
     </section>
 </div>
 
-<ModelViewer {objet} />
+<ModelViewer objet={objet.data} />
 
 
 <style>

@@ -27,7 +27,7 @@
 </svelte:head>
 
 
-    <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier.data.attributes.url}" alt="">
+    <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier?.data.attributes.url}" alt="">
 
     <div class="atelierContent">
 
@@ -54,7 +54,6 @@
         
     </div>
 
-    <ListeAteliers {ateliers} />
 
 <style>
     .atelierBg {

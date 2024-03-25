@@ -3,31 +3,37 @@
 </script>
 
 
-<ul>
     {#if ateliers.data?.length > 0 }
         {#each ateliers.data as atelier }
-            <li><a class="button" href="/ateliers/{atelier?.id}" class:active={atelier.id === 4}>{atelier.attributes?.nomArtisan}</a></li>
+            <a class="bouton-footer" href="/ateliers/{atelier?.id}" class:active={atelier.id === 4}>{atelier.attributes?.nomArtisan}</a>
         {/each}
     {/if}
-</ul>
+
 
 
 <style>
-    ul {
-        position: fixed;
-        z-index: 2;
-        bottom: 20px;
-        left: 20px;
+    .bouton-footer {
+        text-decoration: none;
         color: white;
+        font-size: 25px;
+        font-family: "Zarid";
+        border-radius: 20px;
+        border-style: solid;
+        border-color: #ffffff;
+        border-width: 1px;
+        padding: 8px 20px 8px 20px;
+        margin-top: 25px;
+        margin-right: 16px;
         display: flex;
-        gap: 20px;
-        list-style: none;
-        padding: 10px;
-        margin: 0;
-    }
-    a {
-        color: white;
-        font-size: 20px;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        height: 35px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
     }
     .active { 
         background-color: black;

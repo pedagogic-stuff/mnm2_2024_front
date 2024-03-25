@@ -3,6 +3,9 @@
 	import Footer from '$lib/Components/Footer.svelte'
 	import dev from '$lib/styles/dev.css';
 	import prod from '$lib/styles/prod.css';
+
+	import { page } from '$app/stores';  
+	console.log($page.url.pathname  )
 </script>
 
 <svelte:head>
@@ -18,8 +21,9 @@
 		<slot />
 	</main>
 
-	<Footer />
-
+	{#if $page.url.pathname !== '/'}
+		<Footer />
+	{/if}
 </div>
 
 

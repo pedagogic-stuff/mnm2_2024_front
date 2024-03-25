@@ -168,5 +168,6 @@
     .objetPick {
         background: none;
         border: none;
+        cursor: pointer;
     }
 </style>

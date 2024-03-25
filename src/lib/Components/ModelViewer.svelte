@@ -29,15 +29,15 @@
 <div class="modelviewer_container">
     <!-- 
         src= ????
-        {objet.data?.attributes?.URLavectexture}
-        {objet.data?.attributes?.Fichier3d?.data?.attributes?.url}
+        {objet.attributes?.URLavectexture}
+        {objet.attributes?.Fichier3d?.data?.attributes?.url}
     -->
 	<model-viewer 
         bind:this={modelviewer}
         loading="eager"
         alt="" 
-        src="{objet.data?.attributes?.URLavectexture}" 
-        poster="{objet.data?.attributes?.CarteZone?.data?.attributes?.url}"
+        src="{objet.attributes?.URLsanstexture}" 
+        poster="{objet.attributes?.visuelObjet2d?.data?.attributes?.url}"
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 

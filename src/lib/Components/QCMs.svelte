@@ -36,7 +36,6 @@
                         on:click={ () => { 
                             correct = rep.vraifaux; 
                             exposure = 1; 
-                            this.classList.add('active')
                         }
                     }>
                         {rep.text}

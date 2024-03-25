@@ -27,12 +27,17 @@
 
 
 <div class="modelviewer_container">
-    <!-- Use it like any other HTML element -->
+    <!-- 
+        src= ????
+        {objet.data?.attributes?.URLavectexture}
+        {objet.data?.attributes?.Fichier3d?.data?.attributes?.url}
+    -->
 	<model-viewer 
         bind:this={modelviewer}
+        loading="eager"
         alt="" 
         src="{objet.data?.attributes?.URLavectexture}" 
-        poster="{objet.data?.attributes?.URLavectexture}"
+        poster="{objet.data?.attributes?.CarteZone?.data?.attributes?.url}"
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 

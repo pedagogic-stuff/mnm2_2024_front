@@ -1,11 +1,12 @@
 <script>
+	import { page } from '$app/stores';  
     export let ateliers = '';
 </script>
 
 
     {#if ateliers.data?.length > 0 }
         {#each ateliers.data as atelier }
-            <a class="bouton-footer" href="/ateliers/{atelier?.id}" class:active={atelier.id === 4}>{atelier.attributes?.nomArtisan}</a>
+            <a class="bouton-footer" href="/ateliers/{atelier?.id}" class:active={$page.url.pathname.includes(`/ateliers/${atelier?.id}`)}>{atelier.attributes?.nomArtisan}</a>
         {/each}
     {/if}
 

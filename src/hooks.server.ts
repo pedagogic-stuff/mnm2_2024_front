@@ -23,7 +23,6 @@ export const handle: Handle = async ({ resolve, event }) => {
 
   response.headers.append('Access-Control-Allow-Origin', `*`);
 
-  console.log('RESPONSE: ', response.headers)
   return response;
 };
 

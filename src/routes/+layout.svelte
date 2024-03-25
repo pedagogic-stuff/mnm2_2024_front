@@ -53,6 +53,7 @@
 
 	main {
 		width: 90%;
-		margin: 60px auto;
+		margin: 0 auto;
+  		padding: 180px 0;
 	}
 </style>

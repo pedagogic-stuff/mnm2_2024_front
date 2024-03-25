@@ -1,16 +1,48 @@
 <script>
-    import ListeAteliers from '$lib/Components/ListeAteliers.svelte'
-    import AtelierInformationsRaw from '$lib/Components/AtelierInformationsRaw.svelte'
-    import ChoixObjet from '$lib/Components/ChoixObjet.svelte'
-    import AtelierObjets from '$lib/Components/Atelier/AtelierObjets.svelte';
+    import RichText from '$lib/Components/RichText.svelte';
+    import ModelViewer from '$lib/Components/ModelViewer.svelte';
+    import Manipulation from '$lib/Components/Manipulation.svelte'
+    import QCMs from '$lib/Components/QCMs.svelte'
+	import { enhance, applyAction } from '$app/forms';
 
     export let data;
 	$: ({ atelier, ateliers } = data);
     $: ({ nomArtisan, CodeCouleur, illustrationAtelier, illustrationArtisan, Vignettepersonnage, Textepresentation, objets } = atelier.data.attributes);
 
-    let step = -1;
-    $: console.log('step: ', step);
+    let activeObject = '';
+    let objet;
+    let qcmDone = false;
+    let manipulationDone = false;
+    let exposure = 0;
+    let step = 0;
 
+    $: {
+        console.log('objets: ', objets)
+        console.log('objet: ', objet)
+        console.log('step: ', step)
+    }
+    $: {
+        if( qcmDone ) {
+            step = 'manipulation'
+        }
+    }
+    $: {
+        if( manipulationDone ) {
+            step = undefined
+            qcmDone = false;
+            manipulationDone = false;
+            objet = undefined;
+        }
+    }
+    
+    const launchObjPath = async id => {
+        let populate = `populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d]=*&populate[CarteZone]=*`
+        const url = `https://artisans.stagingserver.fr/api/objets/${id}?${populate}`;
+        const reponse =  await fetch(url)
+        const objet = await reponse.json().then( res => {
+            return res;
+        });
+    }
 
     const launchSequence = () => {
         step += 1;
@@ -27,31 +59,85 @@
 </svelte:head>
 
 
-    <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier?.data.attributes.url}" alt="">
 
-    <div class="atelierContent">
+    <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier?.data?.attributes?.url}" alt="">
 
-        <div>
-            <button on:click={() => launchSequence() }>Launch sequence</button>
-            <button on:click={() => resetSequence() }>Reset sequence</button>
-        </div>
-
+    <div class="atelierContent" data-artisan="{nomArtisan}">
 
         <div class="cols">
 
             <div class="leftCol">
-                {#if step === -1}
-                    <AtelierInformationsRaw {atelier} />
-                {:else if step === 0}
-                    <ChoixObjet reset={true} objets={atelier.data.attributes.objets} />
+
+                {#if step == 0}
+                    <div class="atelierMainCartel">
+                        <div>
+                            <RichText blocks={Textepresentation} />
+                        </div>
+                        <button on:click={() => launchSequence() }>Launch sequence</button>
+                        <button on:click={() => resetSequence() }>Reset sequence</button>
+                    </div>
                 {/if}
+                
+                {#if step == 'qcm' }
+                    <QCMs bind:qcmDone={qcmDone} bind:exposure={exposure} qcms={objet.attributes.qcms} />
+                {/if}
+
+                {#if step == 'manipulation' }
+                    <Manipulation bind:manipulationDone={manipulationDone} {objet} />
+                {/if}
+                
             </div>
 
-            <div class="rightCol">
-                <AtelierObjets {objets} />
+
+            <div class="rightCol">            
+
+                {#if step === 1 }
+
+                    <h2>Choisi un objet : </h2>
+                
+                    {#each objets.data as obj}
+
+                        <form
+                            method="POST"
+                            action="/ateliers?/pickObject"
+                            use:enhance={({ formElement, formData, action, cancel, submitter }) => {
+                                // `formElement` is this `<form>` element
+                                // `formData` is its `FormData` object that's about to be submitted
+                                // `action` is the URL to which the form is posted
+                                // calling `cancel()` will prevent the submission
+                                // `submitter` is the `HTMLElement` that caused the form to be submitted
+
+                                return async ({ result, update }) => {
+                                    console.log('result: ', result)
+                                    
+                                    step = 'qcm';
+                                    objet = result.data.data;   
+                                    
+                                };
+                            }}
+                        >
+                            <input name="id" type="hidden" value="{obj.id}">
+                            <button>
+                                {#if obj.attributes?.visuelObjet2d.data }
+                                    {#each obj.attributes?.visuelObjet2d.data as visuel}
+                                        <img src="{visuel.attributes.url}" alt="{obj.attributes?.nomObjet}"> 
+                                    {/each}
+                                {/if}
+                            </button>
+
+                        </form>
+                    {/each}
+                
+                {/if}
+
+
+                {#if step === 'qcm' }
+                    <ModelViewer {objet} exposure={exposure} />
+                {/if}
+                
             </div>
+
         </div>
-        
     </div>
 
 
@@ -80,5 +166,13 @@
     }
     .rightCol {
         width: 30%;
-    }  
+        display: flex;
+        justify-content: flex-end;
+    } 
+    .atelierMainCartel {
+        max-width: 30vw;
+        background-color: white;
+        color: gray;
+        padding: 20px;
+    }
 </style>

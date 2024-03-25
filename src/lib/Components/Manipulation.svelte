@@ -7,7 +7,7 @@
 
     let displayMainCartel = true;
 
-    $: ({ nomObjet, CodeObjet, CarteZone, visuelObjet2d, qcms, POI, CoordonneesCamera, Fichier3d, CartelSimple } = objet.data.attributes);
+    $: ({ nomObjet, CodeObjet, CarteZone, visuelObjet2d, qcms, POI, CoordonneesCamera, Fichier3d, CartelSimple } = objet.attributes);
 
     $: console.log('objet.POI', objet.POI)
 </script>
@@ -42,14 +42,11 @@
 </div>
 
 
-
-<ModelViewer {objet} hotspots={objet.data.attributes.POI} />
-
-
 <style>
     .cartel {
         border: 1px solid;
         padding: 20px;
+        max-width: 400px;
     }
     .hidden {
         display: none;

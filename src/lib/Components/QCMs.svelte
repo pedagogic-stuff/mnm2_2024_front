@@ -31,7 +31,17 @@
 
         <ul class="">
             {#each qcm.attributes.Responses as rep}
-                <li><button on:click={ () => { correct = rep.vraifaux; exposure = 1} }>{rep.text}</button></li>
+                <li>
+                    <button 
+                        on:click={ () => { 
+                            correct = rep.vraifaux; 
+                            exposure = 1; 
+                            this.classList.add('active')
+                        }
+                    }>
+                        {rep.text}
+                    </button>
+                </li>
             {/each}
         </ul>
 
@@ -54,3 +64,21 @@
     </div>
 {/if}
 
+<style>
+    .qcm_container {
+        background-color: white;
+        padding: 20px;
+        max-width: 400px;
+        color: black;
+    }
+
+    button {
+        padding: 10px;
+        border: 1px solid;
+        background: none;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+</style>

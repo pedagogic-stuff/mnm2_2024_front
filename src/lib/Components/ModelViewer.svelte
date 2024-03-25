@@ -4,6 +4,7 @@
     export let objet = '';
     export let exposure = 1;
     export let hotspots = [];
+    export let manipulation = false;
 
     $: console.log('modelviewer objet: ', objet)
 
@@ -86,7 +87,7 @@
         position: fixed;
         top: 0;
         right: 0;
-        z-index: 0;
+        z-index: 2;
     }
     .actions {
         position: fixed;

@@ -116,8 +116,8 @@
                 {/if}
 
 
-                {#if step === 'qcm' }
-                    <ModelViewer {objet} exposure={exposure} />
+                {#if step === 'qcm' || step == 'manipulation' }
+                    <ModelViewer {objet} exposure={exposure} manipulation={true} />
                 {/if}
                 
             </div>

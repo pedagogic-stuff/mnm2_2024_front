@@ -48,7 +48,14 @@
         {#if hotspots.length > 0}
             {#each hotspots as poi, i }
 
-                <button class="Hotspot" slot="hotspot-1" data-position="{poi.coordonnees}" data-normal="-0.6981260082270647m 0.40286001718554026m -0.5918816462690922m" data-visibility-attribute="visible">
+                <button 
+                    class="Hotspot"
+                    slot="hotspot-1" 
+                    data-position="{poi.coordonnees}" 
+                    data-normal="-0.6981260082270647m 0.40286001718554026m -0.5918816462690922m" 
+                    data-orbit="3.711166deg 92.3035deg 0.04335197m"
+                    data-target="{poi.poiOrbit}"
+                    data-visibility-attribute="visible">
                     <div class="HotspotAnnotation">
                         <RichText blocks={poi.Cartel} />
                         <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">

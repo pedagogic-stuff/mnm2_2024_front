@@ -26,6 +26,9 @@ a {
     color: white;
     text-decoration: none;
 }
+button {
+    cursor: pointer;
+}
 
 /* UTILS */
 

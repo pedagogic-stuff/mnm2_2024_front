@@ -31,7 +31,8 @@
 	<model-viewer 
         bind:this={modelviewer}
         alt="" 
-        src="{objet.data?.attributes?.Fichier3d?.data?.attributes?.url}" 
+        src="{objet.data?.attributes?.URLavectexture}" 
+        poster="{objet.data?.attributes?.URLavectexture}"
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 

@@ -24,6 +24,7 @@ img {
 }
 a {
     color: white;
+    text-decoration: none;
 }
 
 /* UTILS */
@@ -50,7 +51,12 @@ h1 {
 }
 
 
-
+.flex {
+    display: flex;
+}
+.gap-s {
+    gap: 20px;
+}
 
 /* BUTTONS */
 

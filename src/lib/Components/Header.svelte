@@ -20,13 +20,14 @@
           stroke-width="2"
         />
       </svg>
-      <div>
-      Accueil
-      </div>
+
+      <a href="/">Accueil</a>
     </div>
+    
     <div class="titre">
-    Trésors d’artisans
+      Trésors d’artisans
     </div>
+    
     <div class="credit">
       <div>Crédits ©</div>
     </div>

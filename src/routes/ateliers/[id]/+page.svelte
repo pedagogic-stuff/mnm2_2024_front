@@ -34,15 +34,6 @@
             objet = undefined;
         }
     }
-    
-    const launchObjPath = async id => {
-        let populate = `populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d]=*&populate[CarteZone]=*`
-        const url = `https://artisans.stagingserver.fr/api/objets/${id}?${populate}`;
-        const reponse =  await fetch(url)
-        const objet = await reponse.json().then( res => {
-            return res;
-        });
-    }
 
     const launchSequence = () => {
         step += 1;
@@ -93,41 +84,35 @@
 
                 {#if step === 1 }
 
-                    <h2>Choisi un objet : </h2>
-                
-                    {#each objets.data as obj}
+                    <div class="objetsList">
+                        {#each objets.data as obj}
 
-                        <form
-                            method="POST"
-                            action="/ateliers?/pickObject"
-                            use:enhance={({ formElement, formData, action, cancel, submitter }) => {
-                                // `formElement` is this `<form>` element
-                                // `formData` is its `FormData` object that's about to be submitted
-                                // `action` is the URL to which the form is posted
-                                // calling `cancel()` will prevent the submission
-                                // `submitter` is the `HTMLElement` that caused the form to be submitted
+                            <form
+                                method="POST"
+                                action="/ateliers?/pickObject"
+                                use:enhance={({ formElement, formData, action, cancel, submitter }) => {
 
-                                return async ({ result, update }) => {
-                                    console.log('result: ', result)
-                                    
-                                    step = 'qcm';
-                                    objet = result.data.data;   
-                                    
-                                };
-                            }}
-                        >
-                            <input name="id" type="hidden" value="{obj.id}">
-                            <button>
-                                {#if obj.attributes?.visuelObjet2d.data }
-                                    {#each obj.attributes?.visuelObjet2d.data as visuel}
-                                        <img src="{visuel.attributes.url}" alt="{obj.attributes?.nomObjet}"> 
-                                    {/each}
-                                {/if}
-                            </button>
+                                    return async ({ result, update }) => {
+                                        console.log('result: ', result)
+                                        
+                                        step = 'qcm';
+                                        objet = result.data.data;   
+                                        
+                                    };
+                                }}
+                            >
+                                <input name="id" type="hidden" value="{obj.id}">
+                                <button class="objetPick">
+                                    {#if obj.attributes?.visuelObjet2d.data }
+                                        {#each obj.attributes?.visuelObjet2d.data as visuel}
+                                            <img src="{visuel.attributes.url}" alt="{obj.attributes?.nomObjet}"> 
+                                        {/each}
+                                    {/if}
+                                </button>
 
-                        </form>
-                    {/each}
-                
+                            </form>
+                        {/each}
+                    </div>
                 {/if}
 
 
@@ -174,5 +159,14 @@
         background-color: white;
         color: gray;
         padding: 20px;
+    }
+    .objetsList {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .objetPick {
+        background: none;
+        border: none;
     }
 </style>

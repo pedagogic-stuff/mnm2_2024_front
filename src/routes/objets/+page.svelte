@@ -20,11 +20,15 @@
             <li><a href="/objets/{obj.id}">{obj.attributes?.nomObjet}</a></li>
         {/each}
     </ul>
+    
 </section>
 
 
 <style>
-    
+    a {
+        color: white;
+        font-size: 22px;
+    }
 </style>
 
 

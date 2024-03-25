@@ -91,7 +91,6 @@
 
 <ModelViewer {objet} />
 
-<ListeObjets {objets} />
 
 <style>
     .infos_container {

@@ -3,10 +3,11 @@
 
     export let objet = '';
     export let exposure = 1;
-    export let hotspots = [];
     export let manipulation = false;
 
+    $: console.log('modelviewer: ', modelviewer)
     $: console.log('modelviewer objet: ', objet)
+    $: console.log('modelviewer objet.attributes.POI: ', objet.attributes.POI)
 
     let modelviewer, orbit, target, script;
 
@@ -20,6 +21,20 @@
         modelviewer.zoom(z)
     }
 
+    const annotationClicked = (annotation) => {
+        let dataset = annotation.dataset;
+        modelviewer.cameraTarget = dataset.target;
+        modelviewer.cameraOrbit = dataset.orbit;
+        modelviewer.fieldOfView = '45deg';
+    }
+
+    $: if(modelviewer) {
+        modelviewer.querySelectorAll('button').forEach((hotspot) => {
+            hotspot.addEventListener('click', () => annotationClicked(hotspot));
+        });
+    }
+
+    
 </script>
 
 <svelte:head>
@@ -46,26 +61,85 @@
         exposure={exposure}
     >
 
-        {#if hotspots.length > 0}
-            {#each hotspots as poi, i }
+        {#if manipulation && objet.attributes.POI.length > 0}
+            {#each objet.attributes.POI as poi, i }
 
-                <button 
-                    class="Hotspot"
-                    slot="hotspot-1" 
-                    data-position="{poi.coordonnees}" 
-                    data-normal="-0.6981260082270647m 0.40286001718554026m -0.5918816462690922m" 
-                    data-orbit="3.711166deg 92.3035deg 0.04335197m"
-                    data-target="{poi.poiOrbit}"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <RichText blocks={poi.Cartel} />
-                        <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
-                    </div>
-                </button>
+            <!-- data-position="-0.0569m 0.0969m -0.1398m" 
+            data-normal="-0.5829775m 0.2863482m -0.7603565m" 
+            data-orbit="-50.94862deg 84.56856deg 0.06545582m" 
+            data-target="-0.04384604m 0.07348397m -0.1213202m" -->
+
+                {#if i === 0 }
+                    <button 
+                        class="Hotspot"
+                        slot="hotspot-1" 
+                        data-position="{poi.dataPosition}" 
+                        data-normal="{poi.dataNormal}" 
+                        data-orbit="{poi.dataOrbit}"
+                        data-target="{poi.dataTarget}"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <RichText blocks={poi.Cartel} />
+                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
+                        </div>
+                    </button>
+
+                {:else if i === 1}
+                    <button 
+                        class="Hotspot"
+                        slot="hotspot-2" 
+                        data-position="{poi.dataPosition}" 
+                        data-normal="{poi.dataNormal}" 
+                        data-orbit="{poi.dataOrbit}"
+                        data-target="{poi.dataTarget}"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <RichText blocks={poi.Cartel} />
+                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
+                        </div>
+                    </button>
+
+                {:else if i === 2}
+                    <button 
+                        class="Hotspot"
+                        slot="hotspot-3" 
+                        data-position="{poi.dataPosition}" 
+                        data-normal="{poi.dataNormal}" 
+                        data-orbit="{poi.dataOrbit}"
+                        data-target="{poi.dataTarget}"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <RichText blocks={poi.Cartel} />
+                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
+                        </div>
+                    </button>
+
+                {:else if i === 3}
+                    <button 
+                        class="Hotspot"
+                        slot="hotspot-4" 
+                        data-position="{poi.dataPosition}" 
+                        data-normal="{poi.dataNormal}" 
+                        data-orbit="{poi.dataOrbit}"
+                        data-target="{poi.dataTarget}"
+                        data-visibility-attribute="visible"
+                        on:click={() => {
+                            console.log('POI clicked !')
+                        }}>
+                        <div class="HotspotAnnotation">
+                            <RichText blocks={poi.Cartel} />
+                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
+                        </div>
+                    </button>
+                {/if}
 
             {/each}
         {/if}
 
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+        
     </model-viewer>
 
     <div class="actions">
@@ -82,7 +156,7 @@
 
 <style>
     model-viewer {
-        width: 60vw;
+        width: calc(100vw - 600px);
         height: 100vh;
         position: fixed;
         top: 0;
@@ -93,7 +167,7 @@
         position: fixed;
         bottom: 100px;
         right: 20px;
-        z-index: 1;
+        z-index: 3;
         background-color: gray;
         padding: 20px;
     }
@@ -117,10 +191,10 @@
         color: rgba(0, 0, 0, 0.8);
         display: block;
         font-family: Futura, Helvetica Neue, sans-serif;
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 700;
         left: calc(100% + 1em);
-        max-width: 128px;
+        max-width: 400px;
         overflow-wrap: break-word;
         padding: 0.5em 1em;
         position: absolute;

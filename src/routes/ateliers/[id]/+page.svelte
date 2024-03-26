@@ -15,6 +15,7 @@
     let manipulationDone = false;
     let exposure = 0;
     let step = 0;
+    let manipulation = false;
 
     $: {
         console.log('objets: ', objets)
@@ -24,6 +25,7 @@
     $: {
         if( qcmDone ) {
             step = 'manipulation'
+            manipulation = true;
         }
     }
     $: {
@@ -117,7 +119,9 @@
 
 
                 {#if step === 'qcm' || step == 'manipulation' }
-                    <ModelViewer {objet} exposure={exposure} manipulation={true} />
+                    {#key step}
+                        <ModelViewer {objet} exposure={exposure} {manipulation} />
+                    {/key}
                 {/if}
                 
             </div>

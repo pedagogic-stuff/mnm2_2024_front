@@ -19,7 +19,6 @@
         }
         else {
             qcmDone = true;
-            exposure = 0;
         }
     }
 

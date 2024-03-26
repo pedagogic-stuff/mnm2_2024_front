@@ -1,5 +1,4 @@
 <script>
-    import ModelViewer from '$lib/Components/ModelViewer.svelte';
     import RichText from '$lib/Components/RichText.svelte';
 
     export let objet = '';
@@ -7,9 +6,8 @@
 
     let displayMainCartel = true;
 
-    $: ({ nomObjet, CodeObjet, CarteZone, visuelObjet2d, qcms, POI, CoordonneesCamera, Fichier3d, CartelSimple } = objet.attributes);
+    $: ({  CarteZone, CartelSimple } = objet.attributes);
 
-    $: console.log('objet.POI', objet.POI)
 </script>
 
 

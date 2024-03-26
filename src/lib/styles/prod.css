@@ -7,7 +7,7 @@ html, body {
     height: 100%;
     width: 100%;
 }
-hmtl {
+html {
     font-size: 62.5%;
 }
 body {
@@ -28,6 +28,13 @@ a {
 }
 button {
     cursor: pointer;
+    font-size: 1.8rem;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 10px;   
+    line-height: 1.4;   
+    font-size: 2rem;
 }
 
 /* UTILS */
@@ -49,7 +56,7 @@ ul[class] {
 /* TITLES */
 h1 {
     font-family: 'Fedra';
-    font-size: 20px;
+    font-size: 3rem;
     margin: 0;
 }
 
@@ -68,7 +75,7 @@ h1 {
     border: 1px solid white;
     border-radius: 40px;
     font-family: 'Zarid';
-    font-size: 12px;
+    font-size: 1.6rem;
     background-color: transparent;
     color: white;
     padding: 5px 10px;

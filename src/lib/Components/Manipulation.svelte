@@ -24,14 +24,12 @@
 
     <button on:click={ () => displayMainCartel = false }>Close</button>
 
-    <h2>Cartel principal</h2>
+    {#if CartelSimple }
+        <RichText blocks={CartelSimple} />
+    {/if}
 
     {#if CarteZone }
         <p><img src="{CarteZone.data?.attributes?.url}" alt=""></p>
-    {/if}
-
-    {#if CartelSimple }
-        <RichText blocks={CartelSimple} />
     {/if}
 
 </div>
@@ -44,9 +42,10 @@
 
 <style>
     .cartel {
-        border: 1px solid;
         padding: 20px;
         max-width: 400px;
+        background-color: white;
+        color: black;
     }
     .hidden {
         display: none;

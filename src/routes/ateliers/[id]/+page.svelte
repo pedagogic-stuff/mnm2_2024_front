@@ -28,7 +28,7 @@
     }
     $: {
         if( manipulationDone ) {
-            step = undefined
+            step = 0
             qcmDone = false;
             manipulationDone = false;
             objet = undefined;
@@ -36,10 +36,10 @@
     }
 
     const launchSequence = () => {
-        step += 1;
+        step = 'choix';
     }
     const resetSequence = () => {
-        step = -1;
+        step = 0;
     }
 
 </script>
@@ -82,7 +82,7 @@
 
             <div class="rightCol">            
 
-                {#if step === 1 }
+                {#if step === 'choix' }
 
                     <div class="objetsList">
                         {#each objets.data as obj}

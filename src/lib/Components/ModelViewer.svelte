@@ -1,12 +1,12 @@
 <script>
-	import RichText from "./RichText.svelte";
+    import Cartel from "$lib/Components/blocks/Cartel.svelte";
 
     export let objet = '';
     export let exposure = 1;
     export let manipulation = false;
 
-    $: console.log('modelviewer: ', modelviewer)
-    $: console.log('modelviewer objet: ', objet)
+//    $: console.log('modelviewer: ', modelviewer)
+//    $: console.log('modelviewer objet: ', objet)
     $: console.log('modelviewer objet.attributes.POI: ', objet.attributes.POI)
 
     let modelviewer, orbit, target, script;
@@ -34,12 +34,28 @@
         });
     }
 
+    let displayCartel = false, cartel_src_url = '', cartel_text = '', cartel_title = '';
+
+    const updatePoiCartel = (titre, txt, url) => {
+        console.log('updatePoiCartel')
+        displayCartel = true;
+        cartel_src_url = url;
+        cartel_text = txt;
+        cartel_title = titre;
+    }
     
 </script>
 
 <svelte:head>
     <script type="module" bind:this={script} src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js" />
 </svelte:head>
+
+
+
+
+<Cartel titre={cartel_title} texte={cartel_text} visuel={cartel_src_url} bind:displayed={displayCartel}/>
+
+
 
 
 <div class="modelviewer_container">
@@ -77,11 +93,11 @@
                         data-normal="{poi.dataNormal}" 
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
+                        
+                        on:click={() => {
+                            updatePoiCartel(poi.Titre, poi.Cartel, poi.Media?.data?.attributes.url);
+                        }}
                     >
-                        <div class="HotspotAnnotation">
-                            <RichText blocks={poi.Cartel} />
-                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
-                        </div>
                     </button>
 
                 {:else if i === 1}
@@ -93,11 +109,11 @@
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
                         data-visibility-attribute="visible"
+                                                
+                        on:click={() => {
+                            updatePoiCartel(poi.Titre, poi.Cartel, poi.Media?.data?.attributes.url);
+                        }}
                     >
-                        <div class="HotspotAnnotation">
-                            <RichText blocks={poi.Cartel} />
-                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
-                        </div>
                     </button>
 
                 {:else if i === 2}
@@ -109,11 +125,11 @@
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
                         data-visibility-attribute="visible"
+                                                
+                        on:click={() => {
+                            updatePoiCartel(poi.Titre, poi.Cartel, poi.Media?.data?.attributes.url);
+                        }}
                     >
-                        <div class="HotspotAnnotation">
-                            <RichText blocks={poi.Cartel} />
-                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
-                        </div>
                     </button>
 
                 {:else if i === 3}
@@ -125,11 +141,11 @@
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
                         data-visibility-attribute="visible"
+                                                
+                        on:click={() => {
+                            updatePoiCartel(poi.Titre, poi.Cartel, poi.Media?.data?.attributes.url);
+                        }}
                     >
-                        <div class="HotspotAnnotation">
-                            <RichText blocks={poi.Cartel} />
-                            <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
-                        </div>
                     </button>
                 {/if}
 
@@ -172,38 +188,18 @@
         padding: 20px;
     }
     .Hotspot {
-        background: rgb(255, 255, 255);
-        border-radius: 32px;
         border: 0px;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
         box-sizing: border-box;
         cursor: pointer;
-        height: 24px;
-        padding: 8px;
+        height: 80px;
         position: relative;
         transition: opacity 0.3s ease 0s;
-        width: 24px;
-    }
-    .HotspotAnnotation {
-        background: rgb(255, 255, 255);
-        border-radius: 4px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
-        color: rgba(0, 0, 0, 0.8);
-        display: block;
-        font-family: Futura, Helvetica Neue, sans-serif;
-        font-size: 14px;
-        font-weight: 700;
-        left: calc(100% + 1em);
-        max-width: 400px;
-        overflow-wrap: break-word;
-        padding: 0.5em 1em;
-        position: absolute;
-        top: 50%;
-        width: max-content;
-    }
-    .Hotspot > * {
-        opacity: 1;
-        transform: translateY(-50%);
+        width: 80px;
+        background: none;
+        background-image: url('/images/eye.png');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
     .Hotspot {
         cursor: pointer;

@@ -9,7 +9,7 @@
             <span>{atelier.attributes?.nomArtisan}</span>
         </div>
 
-        <div class="block_visuels">
+        <div class="block_visuels" style="background-color:#{atelier.attributes?.CodeCouleur}">
             <img class="block_perso" src="{atelier.attributes?.Vignettepersonnage?.data?.attributes?.url}" alt="">
             <img src="/images/door.png" alt="porte" class="background">
         </div>
@@ -40,6 +40,8 @@
 }
 .block_action {
     margin-bottom: 20px;
+    color: black;
+    border: none;
 }
 
 </style>

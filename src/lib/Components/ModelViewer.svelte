@@ -77,7 +77,7 @@
                         data-normal="{poi.dataNormal}" 
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
-                        data-visibility-attribute="visible">
+                    >
                         <div class="HotspotAnnotation">
                             <RichText blocks={poi.Cartel} />
                             <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
@@ -92,7 +92,8 @@
                         data-normal="{poi.dataNormal}" 
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
-                        data-visibility-attribute="visible">
+                        data-visibility-attribute="visible"
+                    >
                         <div class="HotspotAnnotation">
                             <RichText blocks={poi.Cartel} />
                             <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
@@ -107,7 +108,8 @@
                         data-normal="{poi.dataNormal}" 
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
-                        data-visibility-attribute="visible">
+                        data-visibility-attribute="visible"
+                    >
                         <div class="HotspotAnnotation">
                             <RichText blocks={poi.Cartel} />
                             <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">
@@ -123,9 +125,7 @@
                         data-orbit="{poi.dataOrbit}"
                         data-target="{poi.dataTarget}"
                         data-visibility-attribute="visible"
-                        on:click={() => {
-                            console.log('POI clicked !')
-                        }}>
+                    >
                         <div class="HotspotAnnotation">
                             <RichText blocks={poi.Cartel} />
                             <img width="300" src="{poi.Media?.data?.attributes.url}" alt="fe">

@@ -1,8 +1,9 @@
 <script>
-    import RichText from '$lib/Components/RichText.svelte';
+    import BoiteDialogue from '$lib/Components/blocks/BoiteDialogue.svelte';
     import ModelViewer from '$lib/Components/ModelViewer.svelte';
     import Manipulation from '$lib/Components/Manipulation.svelte'
     import QCMs from '$lib/Components/QCMs.svelte'
+
 	import { enhance, applyAction } from '$app/forms';
 
     export let data;
@@ -62,13 +63,14 @@
             <div class="leftCol">
 
                 {#if step == 0}
-                    <div class="atelierMainCartel">
-                        <div>
-                            <RichText blocks={Textepresentation} />
-                        </div>
-                        <button on:click={() => launchSequence() }>Launch sequence</button>
-                        <button on:click={() => resetSequence() }>Reset sequence</button>
-                    </div>
+                    <BoiteDialogue 
+                        msg={Textepresentation}
+                        on:launch={ () => {
+                            launchSequence()  
+                        }}
+                        on:reset={ () => {
+                            resetSequence()
+                        }}/>
                 {/if}
                 
                 {#if step == 'qcm' }

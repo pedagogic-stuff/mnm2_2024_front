@@ -1,5 +1,6 @@
 <script>
 	import BlockArtisan from '../lib/Components/blocks/BlockArtisan.svelte';
+	import BlockHomeIntro from '../lib/Components/blocks/BlockHomeIntro.svelte';
 
 	export let data;
 	$: ({ ateliers } = data);
@@ -14,7 +15,8 @@
 
 <section>
 
-	<div class="homeIntro">Message d'introduction</div>
+	<BlockHomeIntro msg='Ici un message' />
+
     <ul>
         {#each ateliers.data as atelier }
 			<BlockArtisan {atelier} />

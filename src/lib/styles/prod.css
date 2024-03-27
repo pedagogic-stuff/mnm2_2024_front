@@ -82,3 +82,25 @@ h1 {
     text-decoration: none;
 }
 
+
+
+/* CARTEL */
+
+.cartel.hidden {
+    display: none;
+}
+.cartel {
+    position : fixed;
+    z-index: 3;
+    left : 90px;
+    top : 170px;
+    display: flex;
+    flex-direction: column; 
+    border-radius: 20px;
+    background-color : #2B2B2B;
+    max-width: 520px;
+    color: white;
+    vertical-align: middle;
+    font-family: "Zarid";
+    font-size: 3rem;
+}

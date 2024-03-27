@@ -54,6 +54,6 @@
 	main {
 		width: 90%;
 		margin: 0 auto;
-  		padding: 180px 0;
+  		padding: 80px 0;
 	}
 </style>

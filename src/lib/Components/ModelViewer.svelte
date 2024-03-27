@@ -156,7 +156,7 @@
 
 <style>
     model-viewer {
-        width: calc(100vw - 600px);
+        width: calc(100vw - 500px);
         height: 100vh;
         position: fixed;
         top: 0;

@@ -42,6 +42,15 @@
     margin-bottom: 20px;
     color: black;
     border: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px 8px 10px;
+    border-radius: 50px;
+    font-size: 2.4rem;
+    min-width: 170px;
 }
+
 
 </style>

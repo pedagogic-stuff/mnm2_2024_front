@@ -8,7 +8,7 @@
     let displayMainCartel = true;
 
     $: ({ CarteZone, CartelSimple } = objet.attributes);
-    $: console.log("CarteZone: ", CarteZone)
+    $: console.log("objet.attributes: ", objet.attributes)
 
 </script>
 
@@ -20,7 +20,7 @@
     </button>
 {/if}
 
-<Cartel texte={CartelSimple} visuel={CarteZone.data.attributes.url} bind:displayed={displayMainCartel} />
+<Cartel titre={objet.attributes.nomObjet} texte={CartelSimple} visuel={CarteZone.data.attributes.url} bind:displayed={displayMainCartel} />
 
 <!-- <div class="relative">
     <button on:click={ () => manipulationDone = true}>J'ai fini</button>

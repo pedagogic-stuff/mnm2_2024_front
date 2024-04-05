@@ -19,11 +19,11 @@
         </span>
     </button>
 
-    <div class=titre-cartel>
+    <div class="titre-cartel">
         {titre}
     </div>
 
-    <div class=sous-titre-cartel>
+    <div class="sous-titre-cartel">
         MANQUE CHAMPS DATA
     </div>
 

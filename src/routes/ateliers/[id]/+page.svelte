@@ -3,6 +3,9 @@
     import ModelViewer from '$lib/Components/ModelViewer.svelte';
     import Manipulation from '$lib/Components/Manipulation.svelte'
     import QCMs from '$lib/Components/QCMs.svelte'
+    import { afterNavigate } from '$app/navigation';
+
+
 
 	import { enhance, applyAction } from '$app/forms';
 
@@ -43,7 +46,15 @@
     }
     const resetSequence = () => {
         step = 0;
+        manipulation = false;
+        exposure = 0;
+        qcmDone = false;
+        manipulationDone = false;
     }
+
+    afterNavigate((navigation) => {
+        resetSequence()
+    });
 
 </script>
 

@@ -22,9 +22,9 @@
 
 <Cartel texte={CartelSimple} visuel={CarteZone.data.attributes.url} bind:displayed={displayMainCartel} />
 
-<div class="relative">
+<!-- <div class="relative">
     <button on:click={ () => manipulationDone = true}>J'ai fini</button>
-</div>
+</div> -->
 
 
 <style>

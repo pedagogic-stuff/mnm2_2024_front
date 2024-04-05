@@ -44,13 +44,18 @@
   height: 60px;
   left: 0;
   right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 .image-bandeau-bichromie {
   width: 100%;
   height: 59px;
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  right: 0;
+  top: 0;
   object-fit: cover;
 }
 .credit {
@@ -63,15 +68,7 @@
   border-color: #ffffff;
   border-width: 1px;
   padding: 5px 15px 3px 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 1772px;
-  top: 10px;
-  overflow: hidden;
+  position: relative;
 }
 
 .arrow-left {
@@ -80,6 +77,7 @@
   height: 24px;
   position: relative;
   overflow: visible;
+  position: relative;
 }
 
 .titre {
@@ -88,15 +86,11 @@
   font-family: "Fedra", sans-serif;
   font-size: 30px;
   font-weight: 700;
-  position: absolute;
-  left: 777px;
-  top: 0px;
-  width: 366px;
-  height: 61px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
+  position: relative;
 }
 
 .bouton-accueil {
@@ -105,7 +99,7 @@
   border-radius: 20px;
   border-style: solid;
   border-color: #ffffff;
-  padding : 0px 10px 0px 10px;
+  padding: 5px 15px 3px 20px;
   border-width: 1px;
   display: flex;
   flex-direction: row;
@@ -113,11 +107,8 @@
   align-items: center;
   justify-content: center;
   vertical-align: middle;
-  position: absolute;
-  left: 19px;
-  top: 10px;
   overflow: hidden;
-  height: 35px;
+  position: relative;
 }
 
 

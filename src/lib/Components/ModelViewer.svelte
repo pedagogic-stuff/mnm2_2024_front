@@ -8,6 +8,8 @@
 //    $: console.log('modelviewer: ', modelviewer)
 //    $: console.log('modelviewer objet: ', objet)
     $: console.log('modelviewer objet.attributes.POI: ', objet.attributes.POI)
+    $: console.log('objet.data?.attributes.CoordonneesCamera: ', objet.attributes.CoordonneesCamera)
+    
 
     let modelviewer, orbit, target, script;
 
@@ -73,7 +75,7 @@
         shadow-intensity="1" 
         camera-controls 
         touch-action="pan-y" 
-        camera-orbit="{objet.data?.attributes.CoordonneesCamera}" 
+        camera-orbit="{objet.attributes.CoordonneesCamera}" 
         exposure={exposure}
     >
 

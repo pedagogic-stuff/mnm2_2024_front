@@ -104,3 +104,10 @@ h1 {
     font-family: "Zarid";
     font-size: 3rem;
 }
+
+.tuto-pop-up img {
+    display: inline-block;
+    width: 38px;
+    height: 21px;
+    object-fit: contain;
+}

@@ -1,6 +1,7 @@
 <script>
     import RichText from '$lib/Components/RichText.svelte';
     import Cartel from "$lib/Components/blocks/Cartel.svelte";
+	import BlockHomeIntro from '$lib/Components/blocks/BlockHomeIntro.svelte';
 
     export let objet = '';
     export let manipulationDone = false;
@@ -19,6 +20,10 @@
         <img src="/images/open.png" alt="open cartel">
     </button>
 {/if}
+
+
+<BlockHomeIntro msg={objet.attributes.consignePOI} />
+
 
 <Cartel titre={objet.attributes.nomObjet} texte={CartelSimple} visuel={CarteZone.data.attributes.url} bind:displayed={displayMainCartel} />
 

@@ -11,7 +11,7 @@
 
     export let data;
 	$: ({ atelier, ateliers } = data);
-    $: ({ nomArtisan, CodeCouleur, illustrationAtelier, illustrationArtisan, Vignettepersonnage, Textepresentation, objets } = atelier.data.attributes);
+    $: ({ nomArtisan, CodeCouleur, illustrationAtelier, illustrationArtisan, Vignettepersonnage, Textepresentation, objets, CheminAtelier } = atelier.data.attributes);
 
     let activeObject = '';
     let objet;
@@ -92,7 +92,7 @@
                 {/if}
 
                 {#if step == 'manipulation' }
-                    <Manipulation bind:manipulationDone={manipulationDone} {objet} />
+                    <Manipulation bind:manipulationDone={manipulationDone} CheminAtelier={CheminAtelier} {objet} />
                 {/if}
                 
             </div>

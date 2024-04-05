@@ -1,6 +1,6 @@
 <script>
     export let atelier = '';
-    //$: console.log('[BLOCKARTISAN] atelier: ', atelier)
+    $: console.log('[BLOCKARTISAN] atelier: ', atelier)
 </script>
 
 <div class="block">
@@ -32,7 +32,6 @@
 }
 .block_perso {
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
     bottom: 0;

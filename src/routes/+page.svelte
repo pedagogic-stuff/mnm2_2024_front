@@ -6,7 +6,7 @@
 	$: ({ ateliers, accueil } = data);
 
 	$:console.log('ateliers: ', ateliers)
-	$:console.log('accueil: ', accueil.data.attributes.cartelAccueil)
+
 </script>
 
 <svelte:head>

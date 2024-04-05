@@ -92,17 +92,21 @@ h1 {
 .cartel {
     position : fixed;
     z-index: 3;
-    left : 90px;
-    top : 170px;
+    left : 0;
+    top : 60px;
+    bottom: 0;
     display: flex;
     flex-direction: column; 
-    border-radius: 20px;
+    border-radius: 0 20px 20px 0;
     background-color : #2B2B2B;
-    max-width: 520px;
+    width: 670px;
     color: white;
     vertical-align: middle;
     font-family: "Zarid";
     font-size: 3rem;
+    height: 100%;
+     overflow: scroll;
+     padding-bottom: 500px;
 }
 
 .tuto-pop-up img {
@@ -110,4 +114,12 @@ h1 {
     width: 38px;
     height: 21px;
     object-fit: contain;
+}
+
+.reponseBlock p {
+    font-size: inherit;
+}
+
+.texte-cartel p {
+    font-size: inherit;
 }

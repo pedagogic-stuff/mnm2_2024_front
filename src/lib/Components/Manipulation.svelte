@@ -5,11 +5,13 @@
 
     export let objet = '';
     export let manipulationDone = false;
+    export let CheminAtelier = '';
 
     let displayMainCartel = true;
 
     $: ({ CarteZone, CartelSimple } = objet.attributes);
     $: console.log("objet.attributes: ", objet.attributes)
+    $: console.log('CheminAtelier', CheminAtelier)
 
 </script>
 
@@ -25,7 +27,7 @@
 <BlockHomeIntro msg={objet.attributes.consignePOI} />
 
 
-<Cartel titre={objet.attributes.nomObjet} texte={CartelSimple} visuel={CarteZone.data.attributes.url} bind:displayed={displayMainCartel} />
+<Cartel CheminAtelier={CheminAtelier} titre={objet.attributes.nomObjet} texte={CartelSimple} visuel={CarteZone.data.attributes.url} closeable={false} bind:displayed={displayMainCartel} />
 
 <!-- <div class="relative">
     <button on:click={ () => manipulationDone = true}>J'ai fini</button>

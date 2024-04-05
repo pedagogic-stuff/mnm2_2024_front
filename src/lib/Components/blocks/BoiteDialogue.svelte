@@ -17,7 +17,7 @@
 
 
     <div class="boite-dialogue">
-      <button class="small" on:click={() => resetSequence() }>Reset sequence</button>
+      <!-- <button class="small" on:click={() => resetSequence() }>Reset sequence</button> -->
 
         <div class="texte-cartel"> 
           <RichText blocks={msg} />

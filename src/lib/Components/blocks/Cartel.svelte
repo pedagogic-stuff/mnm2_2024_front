@@ -44,7 +44,7 @@
 <style>
 
     .titre-cartel{
-        padding: 20px 100px 0px 20px;
+        padding: 30px 100px 30px 20px;
         font-size: 4.5rem;
         font-weight: bold;
         line-height: 1;

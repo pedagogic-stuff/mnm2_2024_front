@@ -47,6 +47,7 @@
         padding: 20px 100px 0px 20px;
         font-size: 4.5rem;
         font-weight: bold;
+        line-height: 1;
     }
     .sous-titre-cartel{
         margin: 10px 20px 10px 20px;

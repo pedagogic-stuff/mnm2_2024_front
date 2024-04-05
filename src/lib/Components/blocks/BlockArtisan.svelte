@@ -1,15 +1,16 @@
 <script>
     export let atelier = '';
     $: console.log('[BLOCKARTISAN] atelier: ', atelier)
+    $: console.log('[BLOCKARTISAN] atelier.attributes?.CodeCouleur ', atelier.attributes?.CodeCouleur)
 </script>
 
 <div class="block">
     <a class="block_action" href="/ateliers/{atelier.id}">
-        <div class="button block_action" style="background-color:#{atelier.attributes?.CodeCouleur}">
+        <div class="button block_action" style="background-color:{atelier.attributes?.CodeCouleur}">
             <span>{atelier.attributes?.nomArtisan}</span>
         </div>
 
-        <div class="block_visuels" style="background-color:#{atelier.attributes?.CodeCouleur}">
+        <div class="block_visuels" style="background-color:{atelier.attributes?.CodeCouleur}">
             <img class="block_perso" src="{atelier.attributes?.Vignettepersonnage?.data?.attributes?.url}" alt="">
             <img src="/images/door.png" alt="porte" class="background">
         </div>

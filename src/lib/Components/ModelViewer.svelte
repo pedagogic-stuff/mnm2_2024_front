@@ -189,7 +189,6 @@
     }
     .Hotspot {
         border: 0px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px;
         box-sizing: border-box;
         cursor: pointer;
         height: 80px;

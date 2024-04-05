@@ -23,10 +23,6 @@
         {titre}
     </div>
 
-    <div class="sous-titre-cartel">
-        MANQUE CHAMPS DATA
-    </div>
-
     <div class=texte-cartel>
         {#if texte }
             <RichText blocks={texte} />

@@ -64,8 +64,11 @@
 </svelte:head>
 
 
+        <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier?.data?.attributes?.url}" alt="">
 
-    <img class="atelierBg" src="{atelier.data.attributes.illustrationAtelier?.data?.attributes?.url}" alt="">
+    {#if step == 0 || step == "choix"}
+        <img class="atelierBg" src="{atelier.data.attributes.illustrationArtisan?.data?.attributes?.url}" alt="">
+    {/if}
 
     <div class="atelierContent" data-artisan="{nomArtisan}">
 

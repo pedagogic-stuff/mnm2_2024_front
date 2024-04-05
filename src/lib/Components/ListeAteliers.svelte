@@ -22,7 +22,7 @@
         border-style: solid;
         border-color: #ffffff;
         border-width: 1px;
-        padding: 8px 20px 8px 20px;
+        padding: 10px 40px 10px 40px;
         margin-top: 25px;
         margin-right: 16px;
         display: flex;

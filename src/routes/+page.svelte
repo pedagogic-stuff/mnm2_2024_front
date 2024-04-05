@@ -3,9 +3,10 @@
 	import BlockHomeIntro from '../lib/Components/blocks/BlockHomeIntro.svelte';
 
 	export let data;
-	$: ({ ateliers } = data);
+	$: ({ ateliers, accueil } = data);
 
 	$:console.log('ateliers: ', ateliers)
+	$:console.log('accueil: ', accueil.data.attributes.cartelAccueil)
 </script>
 
 <svelte:head>
@@ -15,10 +16,10 @@
 
 <section>
 
-	<BlockHomeIntro msg='Ici un message' />
+	<BlockHomeIntro msg={accueil.data.attributes.cartelAccueil} />
 
     <ul>
-        {#each ateliers.data as atelier }
+        {#each accueil.data.attributes.ateliers.data as atelier }
 			<BlockArtisan {atelier} />
         {/each}
     </ul>

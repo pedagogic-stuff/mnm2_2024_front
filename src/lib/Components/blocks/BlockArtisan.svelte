@@ -1,7 +1,6 @@
 <script>
     export let atelier = '';
-    $: console.log('[BLOCKARTISAN] atelier: ', atelier)
-    $: console.log('[BLOCKARTISAN] atelier.attributes?.CodeCouleur ', atelier.attributes?.CodeCouleur)
+    //$: console.log('[BLOCKARTISAN] atelier: ', atelier)
 </script>
 
 <div class="block">
@@ -41,7 +40,7 @@
 }
 .block_action {
     margin-bottom: 20px;
-    color: black;
+    color: white;
     border: none;
     text-align: center;
     display: flex;

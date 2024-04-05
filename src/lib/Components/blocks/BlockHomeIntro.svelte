@@ -1,10 +1,12 @@
 <script>
+    import RichText from '$lib/Components/RichText.svelte';
+
     export let msg = ''
 </script>
 
 <section class="flex">
     <div class="tuto-pop-up">
-        {msg}
+        <RichText blocks={msg} />
     </div>
 </section>
 
@@ -23,7 +25,7 @@
         border-radius: 40px;
         max-width: 828px;
         width: 90%;
-        height: 35px;
         overflow: hidden;
+        padding: 10px 10px 0 10px;
     }
 </style>

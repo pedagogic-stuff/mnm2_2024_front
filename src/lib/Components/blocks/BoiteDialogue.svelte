@@ -46,6 +46,7 @@
     left: 20vw;
     bottom: 20vh;
     padding: 20px;
+    font-size: 2.3rem;
   }
   button {
     background: none;

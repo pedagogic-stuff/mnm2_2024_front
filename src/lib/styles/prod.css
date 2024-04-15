@@ -98,7 +98,7 @@ h1 {
     z-index: 3;
     left : 0;
     top : 60px;
-    bottom: 0;
+    bottom: 120px;
     display: flex;
     flex-direction: column; 
     border-radius: 0 20px 20px 0;
@@ -108,9 +108,8 @@ h1 {
     vertical-align: middle;
     font-family: "Zarid";
     font-size: 3rem;
-    height: 100%;
-     overflow: scroll;
-     padding-bottom: 500px;
+    overflow: scroll;
+    padding-bottom: 500px;
 }
 
 .tuto-pop-up img {
@@ -125,5 +124,8 @@ h1 {
 }
 
 .texte-cartel p {
+    font-size: inherit;
+}
+.boite-dialogue p{
     font-size: inherit;
 }

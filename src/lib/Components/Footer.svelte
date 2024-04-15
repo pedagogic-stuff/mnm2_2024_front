@@ -49,7 +49,7 @@
 footer {
   display: flex ;
   position: fixed; 
-  left : 700px;
+  left : 573px;
   right: 3vw;
   bottom : 20px;
   flex-shrink: 0;

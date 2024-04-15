@@ -52,7 +52,7 @@
 <style>
 
     .surtitre-cartel {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         padding: 35px 35px 0 35px;
     }
     .titre-cartel{

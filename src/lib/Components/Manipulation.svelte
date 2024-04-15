@@ -24,8 +24,9 @@
 {/if}
 
 
-<BlockHomeIntro msg={objet.attributes.consignePOI} />
-
+<div class="consignePois">
+    <BlockHomeIntro msg={objet.attributes.consignePOI} />
+</div>
 
 <Cartel CheminAtelier={CheminAtelier} titre={objet.attributes.nomObjet} texte={CartelSimple} visuel={CarteZone.data.attributes.url} closeable={false} bind:displayed={displayMainCartel} />
 
@@ -42,6 +43,11 @@
         top : 170px;
         background: none;
         border: none;
+    }
+    .consignePois {
+        position: fixed;
+        right: 0;
+        width: calc(100vw - 670px);
     }
 
 </style>

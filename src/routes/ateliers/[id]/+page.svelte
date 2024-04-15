@@ -76,7 +76,7 @@
 
             <div class="leftCol">
 
-                {#if step == 0}
+                {#if step == 0 || step == 'choix' }
                     <BoiteDialogue 
                         msg={Textepresentation}
                         on:launch={ () => {
@@ -100,7 +100,7 @@
 
             <div class="rightCol">            
 
-                {#if step === 'choix' }
+                {#if  step == 0 || step === 'choix' }
 
                     <div class="objetsList">
                         {#each objets.data as obj}
@@ -121,10 +121,17 @@
                             >
                                 <input name="id" type="hidden" value="{obj.id}">
                                 <button class="objetPick">
-                                    {#if obj.attributes?.visuelObjet2d.data }
-                                        {#each obj.attributes?.visuelObjet2d.data as visuel}
-                                            <img src="{visuel.attributes.url}" alt="{obj.attributes?.nomObjet}"> 
-                                        {/each}
+
+                                    {#if step == 0 }
+                                        {#if obj.attributes?.visuelObjet2d.data }
+                                            {#each obj.attributes?.visuelObjet2d.data as visuel}
+                                                    <img src="{visuel.attributes.url}" alt="{obj.attributes?.nomObjet}"> 
+                                            {/each}
+                                        {/if}
+                                    {:else}
+                                        {#if obj.attributes?.visuelObjet2d_avecHalo.data }
+                                            <img src="{obj.attributes?.visuelObjet2d_avecHalo.data.attributes.url}" alt="{obj.attributes?.nomObjet}"> 
+                                        {/if}
                                     {/if}
                                 </button>
 
@@ -156,7 +163,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        filter:brightness(.7)
+        filter:brightness(.7);
+        object-position: center right;
     }
     .atelierContent {
         position: relative;
@@ -185,13 +193,16 @@
         flex-direction: column;
         gap: 20px;
         position: fixed;
-        right: 50px;
+        right: 65px;
     }
     .objetPick {
         background: none;
         border: none;
         cursor: pointer;
-        width: 220px;
+        width: 300px;
         height: 300px;
+    }
+    .objetPick img {
+        max-height: 80%;
     }
 </style>

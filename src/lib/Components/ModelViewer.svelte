@@ -160,7 +160,7 @@
         
     </model-viewer>
 
-    <div class="actions">
+    <!-- <div class="actions">
         <button on:click={ () => { getCameraOrbit() } }>Get Orbit</button>
         <button on:click={ () => { getCameraTarget() } }>Get Target</button>
         <button on:click={ () => { zoom(4) } }>Zoom In</button>
@@ -168,7 +168,7 @@
 
         <p>Orbit : {orbit}</p>
         <p>Target : {target}</p>
-    </div>
+    </div> -->
 </div>
 
 

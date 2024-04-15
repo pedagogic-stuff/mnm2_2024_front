@@ -18,6 +18,9 @@
         if( qcmIndex < qcms.data.length - 1 ) {
             qcmIndex += 1;
             correct = undefined
+            document.querySelectorAll('.reponse').forEach( el => {
+                el.classList.remove('clicked');
+            })
         }
         else {
             qcmDone = true;
@@ -39,8 +42,10 @@
         {#each qcm.attributes.Responses as rep}
             <div>
                 <button 
-                    class="reponse" class:juste={rep.vraifaux && showReponse}
-                    on:click={ () => { 
+                    class="reponse" class:juste={rep.vraifaux && showReponse} 
+                    on:click={ (e) => { 
+                        console.log(e);
+                        e.target.classList.add('clicked');
                         correct = rep.vraifaux; 
                         exposure = 1; 
                         showReponse = true;
@@ -63,7 +68,7 @@
                     </button>
 
                 {:else}
-                    <p>Tu y étais presque...</p>
+                    <p>Vous y étiez presque...</p>
                     <RichText blocks={qcm.attributes.cartel} />
                     <button class="next" on:click={ () => nexStep() }>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

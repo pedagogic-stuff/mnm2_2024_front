@@ -36,6 +36,7 @@
     right: 0;
     bottom: 0;
     max-height: 100%;
+    height: 90%;
 }
 .block_action {
     margin-bottom: 20px;

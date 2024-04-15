@@ -184,10 +184,14 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        position: fixed;
+        right: 50px;
     }
     .objetPick {
         background: none;
         border: none;
         cursor: pointer;
+        width: 220px;
+        height: 300px;
     }
 </style>

@@ -68,7 +68,15 @@
         overflow-y: scroll;
         height: calc(100% - 600px);
         padding-bottom: 100px;
+
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
+     /* Hide scrollbar for Chrome, Safari and Opera */
+    .texte-cartel::-webkit-scrollbar {
+    display: none;
+    }
+
     .image-cartel-container {
         position: absolute;
         bottom: 0;

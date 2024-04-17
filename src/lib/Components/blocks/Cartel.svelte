@@ -65,6 +65,9 @@
         margin: 10px 35px 10px 35px;
         line-height: 25px;
         font-size: 25px;
+        overflow-y: scroll;
+        height: calc(100% - 600px);
+        padding-bottom: 100px;
     }
     .image-cartel-container {
         position: absolute;

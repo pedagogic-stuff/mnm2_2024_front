@@ -34,8 +34,13 @@
 {/if}
 <style>
 
+
     h1, h2, h3 {
         color: inherit;
+    }
+    h2 {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
     }
     .bold {
         font-weight: 900;

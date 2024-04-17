@@ -120,7 +120,7 @@
                                 }}
                             >
                                 <input name="id" type="hidden" value="{obj.id}">
-                                <button class="objetPick">
+                                <button class="objetPick" disabled={step == 0 }>
 
                                     {#if step == 0 }
                                         {#if obj.attributes?.visuelObjet2d.data }
@@ -204,5 +204,8 @@
     }
     .objetPick img {
         max-height: 80%;
+    }
+    button:disabled {
+        cursor: default;
     }
 </style>

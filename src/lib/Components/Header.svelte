@@ -29,7 +29,7 @@
     </div>
     
     <div class="credit">
-      <div>Crédits ©</div>
+      <a href="/credits">Crédits ©</a>
     </div>
   </div>
 </header>

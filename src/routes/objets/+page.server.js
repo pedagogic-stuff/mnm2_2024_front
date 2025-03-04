@@ -1,5 +1,5 @@
 
-const url = `https://artisans.stagingserver.fr/api/objets`;
+const url = `https://strapi-vywd-production.up.railway.app/api/objets`;
 
 const reponse =  await fetch(url)
 const objets = await reponse.json();

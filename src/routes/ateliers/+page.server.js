@@ -1,5 +1,5 @@
 
-const url = `https://artisans.stagingserver.fr/api/ateliers`;
+const url = `https://strapi-vywd-production.up.railway.app/api/ateliers`;
 
 const reponse =  await fetch(url)
 const ateliers = await reponse.json();
@@ -16,7 +16,7 @@ export const actions = {
 		const id = data.get('id');
 
         let populate = `populate[qcms][populate]=*&populate[POI][populate]=*&populate[Fichier3d]=*&populate[CarteZone]=*`
-        const url = `https://artisans.stagingserver.fr/api/objets/${id}?${populate}`;
+        const url = `https://strapi-vywd-production.up.railway.app/api/objets/${id}?${populate}`;
         const reponse =  await fetch(url);
 		const objet = await reponse.json()
         return objet;

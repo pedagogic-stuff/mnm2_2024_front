@@ -4,7 +4,7 @@
     let ateliers
     
     onMount( async () => {
-        const url = `https://artisans.stagingserver.fr/api/ateliers`;
+        const url = `https://strapi-vywd-production.up.railway.app/api/ateliers`;
         const reponse =  await fetch(url)
         ateliers = await reponse.json();
     })

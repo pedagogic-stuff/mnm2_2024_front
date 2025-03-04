@@ -1,7 +1,7 @@
 
 
 
-const f = await fetch('https://artisans.stagingserver.fr/api/credit')
+const f = await fetch('https://strapi-vywd-production.up.railway.app/api/credit')
 const credits = await f.json();
 
 export function load() {
